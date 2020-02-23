@@ -1,0 +1,126 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i');
+@import url('https://fonts.googleapis.com/css?family=Sacramento|Kalam');
+
+/* typography */
+HTML {
+  font-size: $font-size-base;
+}
+
+small {
+  font-size: 80%;
+  font-weight: normal;
+}
+
+h2 {
+  font-size: 1.2em;
+  margin: 0 0 1em 0;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+// titoli pagine
+
+h3, h4, h5, h6, .h3, .h4, .h5, .h6 {
+  margin: 1em 0;
+}
+h1, h2, h3, h4, h5, h6 {
+  a {
+    text-decoration: none;
+  }
+}
+
+h4 {
+  font-size: 1.5rem;
+}
+
+pre, code {
+  font-family: monospace;
+}
+
+pre {
+  margin: 1.5em 0;
+}
+
+p + p {
+  margin-top: 1em;
+}
+
+hr {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border: 0;
+  border-top: 1px dashed rgba(0,0,0,0.1);
+  height: 1px;
+}
+
+%titleHome {
+  font-size: 2.8em;
+  line-height: 1.2em;
+  @media ($medium-screen) {
+    font-size: 3.3em;
+    line-height: 1.3em;
+  }
+  font-weight: 700;
+  padding: 0;
+}
+
+H1 {
+  // home style
+  .home & {
+    @extend %titleHome;
+  }
+}
+
+H2 {
+  .home & {
+    font-size: 1.2em;
+    margin: 0 0 1em 0;
+    text-transform: uppercase;
+
+    @extend %titleHome;
+
+    @media ($mobile-screen-max) {
+      line-height: 1.8;
+    }
+  }
+
+}
+
+H3 {
+  font-size: $font-size-body;
+  .home & {
+    font-size: 1.1em;
+    margin-top: 0;
+    font-weight: bold;
+  }
+}
+
+EM {
+  font-style: italic;
+  BODY.home & {
+    font-weight: 600;
+    font-style: normal;
+  }
+}
+
+A {
+  color: $color-link;
+  &:hover, &:focus {
+    color: $color-link;
+  }
+}
+
+ACRONYM {
+  border-bottom:1px dotted #ccc;
+}
+
+strong {
+  font-weight: 600;
+}
+
+.anchor {
+    display: block;
+    position: relative;
+    top: -130px;
+    visibility: hidden;
+}

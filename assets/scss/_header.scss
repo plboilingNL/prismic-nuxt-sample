@@ -1,0 +1,119 @@
+#css-open-menu {
+  display: none;
+}
+.menu-btn {
+  top: 39px;
+  right: 15px;
+  position: fixed;
+  cursor: pointer;
+  z-index: 9999;
+  border: none;
+  background: none;
+  padding: 0;
+  display: inline-block;
+  width: 30px;
+  height: 20px;
+  &:focus {
+    outline: none;
+  }
+
+  @media ($medium-screen) {
+    display: none;
+  }
+
+  span {
+    height: 5px;
+    width: 30px;
+    background: $dark;
+    position: absolute;
+    display: block;
+    content: '';
+    transition: all 200ms linear;
+    &::before, &::after {
+      height: 5px;
+      width: 30px;
+      background: $dark;
+      position: absolute;
+      display: block;
+      content: '';
+      transition: all 200ms linear;
+    }
+    &::before {
+      top: -10px;
+    }
+    &::after {
+      bottom: -10px;
+    }
+  }
+  &.active, #css-open-menu:checked + & {
+    // position: fixed;
+    span {
+      background-color: transparent;
+      &::before, &::after {
+        top: 0;
+      }
+      &::before {
+        transform: rotate(45deg);
+      }
+      &::after {
+        transform: rotate(-45deg);
+      }
+    }
+  }
+}
+
+header[role="navigation"] {
+    background-color: $light;
+    padding: 1em 0;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 1;
+  
+  .container {
+    align-items: center;
+    @media ($medium-screen-max) {
+      display: block;
+    }
+  }
+  @media ($medium-screen-max) {
+    #css-open-menu:checked + label + & {
+      height: 100%;
+      position: fixed;
+      width: 100%;
+    }
+  }
+}
+
+.type-blog, .type-post, .type-categories, .type-all-posts, .type-member {
+  header {
+    @media ($medium-screen) {
+      position: relative;
+    }
+  }
+}
+
+.logo, h1.logo {
+  margin: 0;
+  padding: 0;
+  display: inline-block;
+  @media ($medium-screen) {
+    height: 88px;
+  }
+}
+.logo {
+  @include grid-column(17%);
+  span {
+    display: none;
+  }
+  img {
+    max-width: 127px;
+    @media ($medium-screen) {
+      max-width: 100%; //220px;
+    }
+  }
+}
+
+.type-blog, .type-categories, .type-post, .type-tags {
+  //background-color: #efefef;
+}

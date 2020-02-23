@@ -1,0 +1,41 @@
+
+// typography
+$font-main: 'Open Sans', sans-serif;
+$font-signature: 'Sacramento', cursive;
+$font-quote: 'Kalam', cursive;
+
+// font size
+$font-size-base: 16px;
+$font-size-body: 1rem; // original size: 14.3px = 1.025rem
+$font-size-nav: 1.3rem;
+$font-size-footer: 0.75rem;
+$font-size-title: 1.5rem;
+$font-size-small: 0.857em; // pagina cookie
+
+// colors
+$light: white;
+$dark: #212121;
+$color-bg: #dfdfdf;
+$color-text: #212121;
+$color-link: #020202;
+$color-lightgrey: #f6f6f6;
+
+// misure
+$padding-input: 4%;
+$container-max-width: 1190px;
+$grid-columns: 12;
+$grid-gap: 0;
+
+// responsive breakpoints
+$xlarge-screen: 'min-width:1440px';
+$large-screen: 'min-width:1200px';
+$medium-screen: 'min-width:992px';
+$small-screen: 'min-width:768px';
+$mobile-screen-max: 'max-width:600px';
+$small-screen-max: 'max-width:768px';
+$medium-screen-max: 'max-width:992px';
+$retina: 'only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min--moz-device-pixel-ratio: 1.5), only screen and (-o-min-device-pixel-ratio: 3/2), only screen and (min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi)';
+
+
+
+$path-img: '~assets/images/';

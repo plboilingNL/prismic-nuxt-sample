@@ -1,0 +1,102 @@
+
+// socials icons
+.socials {
+  margin: 0 0 2em 0;
+  header[role="navigation"] & {
+    @include grid-column(23%);
+  }
+  ul {
+    padding:0;
+    font-size: 1rem;
+    header[role="navigation"] & {
+      font-size: 1.3rem;
+      display: none;
+    }
+    #css-open-menu:checked + label + header & {
+      margin: 2em auto;
+      display: table;
+    }
+
+
+    @media ($medium-screen) {
+      opacity: 1;
+      height: 24px;
+      header[role="navigation"] & {
+        display: block;
+        height: 24px;
+        text-align: left;
+      }
+
+      &.reduce {
+        margin: 2.4em auto;
+      }
+    }
+
+    LI {
+      font-size: 0;
+      height: 24px;
+      margin: 0 5px; // non posso usare gli em perchè ho messo font a 0
+      display: inline-block;
+      header[role="navigation"] & {
+        height: 24px;
+        margin: 0 15px; // non posso usare gli em perchè ho messo font a 0
+      }
+
+      &:last-child {
+        margin-right: 0;
+      }
+      &:first-child {
+        margin-left: 0;
+      }
+
+      a {
+        background-repeat: no-repeat;
+        background-position: top center;
+        width: 24px;
+        height: 24px;
+        display: block;
+        overflow: hidden;
+        border: none;
+        text-indent: -100%;
+        transition: all ease 0.3s;
+        header[role="navigation"] & {
+          width: 24px;
+          height: 24px;
+        }
+        &:hover {
+          background-position: bottom center;
+        }
+
+        background-size: 24px 48px;
+        header[role="navigation"] & {
+          background-size: 24px 48px;
+        }
+
+      }
+      &.tw A {
+        background-image: url($path-img +"social_tw.png");
+        @media #{$retina} {
+          background-image: url($path-img + "social_tw@2x.png");
+        }
+      }
+      &.li A {
+        background-image: url($path-img +"social_li.png");
+        @media #{$retina} {
+          background-image: url($path-img + "social_li@2x.png");
+        }
+      }
+      &.gh A {
+        background-image: url($path-img +"social_gh.png");
+        @media #{$retina} {
+          background-image: url($path-img + "social_gh@2x.png");
+        }
+      }
+      &.ig A {
+        background-image: url($path-img +"social_instagram.png");
+        @media #{$retina} {
+          background-image: url($path-img + "social_instagram@2x.png");
+        }
+      }
+    }
+  }
+}

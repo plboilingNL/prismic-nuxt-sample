@@ -1,5 +1,8 @@
 export default {
   mode: 'universal',
+  server: {
+    port: 4567
+  },
   /*
    ** Headers of the page
    */
@@ -23,7 +26,7 @@ export default {
   /*
    ** Global CSS
    */
-  css: [],
+  css: ['@/assets/scss/screen.scss'],
   /*
    ** Plugins to load before mounting the App
    */

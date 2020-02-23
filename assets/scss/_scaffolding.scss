@@ -1,0 +1,107 @@
+* {
+  box-sizing: border-box;
+}
+HTML, BODY {
+  height: 100%;
+  min-height: 100%;
+}
+
+BODY {
+  font-family: $font-main;
+  font-size: $font-size-body;
+  line-height: 1.714em;
+  padding-top: 97px;
+  color: $color-text;
+  @media ($medium-screen) {
+    padding-top: 0;
+  }
+}
+
+// img alignment
+img {
+  &[src$="center"] {
+    display: block;
+    margin: 0 auto;
+  }
+  &[src$="right"] {
+    display: block;
+    margin: 0 0 0 auto;
+  }
+}
+
+.container {
+  max-width: $container-max-width;
+  margin: 0 auto;
+  padding-left: 15px;
+  padding-right: 15px;
+  @include make-grid(4);
+  @media ($small-screen) {
+    @include make-grid();
+  }
+}
+
+
+main[role="main"] {
+  padding: 2em 0;
+}
+
+.page-content {
+  overflow: hidden;
+  @include grid-column(100%);
+}
+.page-aside {
+  @include grid-column(100%);
+  @media ($medium-screen) {
+    @include grid-column(25%);
+  }
+}
+
+
+footer[role="contentinfo"] {
+  clear: both;
+  width: 100%;
+  text-align: center;
+  color: $color-text;
+  padding: 0.5em 0;
+  margin-bottom: 1.5em;
+  line-height: normal;
+  font-size: $font-size-footer;
+  a {
+    color: #202020;
+    text-decoration: none;
+    perspective: 1000px;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  .container {
+    display: block;
+  }
+
+  @media ($medium-screen) {
+
+    .error404 & {
+      height: auto;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+    }
+
+  }
+}
+
+.lang {
+  margin: 0.5em 0;
+  font-style: normal;
+  text-transform: uppercase;
+  a, span {
+    padding: 0 0.8em;
+  }
+  a:not(:last-child) {
+    border-right: solid 1px lighten(black,50%);
+  }
+  span {
+    font-weight: bold;
+  }
+}
