@@ -44,8 +44,33 @@ export default {
   modules: [
     '@nuxtjs/pwa',
     // Doc: https://github.com/nuxt-community/dotenv-module
-    '@nuxtjs/dotenv'
+    '@nuxtjs/dotenv',
+    // Doc: https://nuxt-community.github.io/nuxt-i18n/
+    'nuxt-i18n'
   ],
+  /**
+   * I18n module configuration
+   * See https://nuxt-community.github.io/nuxt-i18n/options-reference.html
+   */
+  i18n: {
+    locales: [
+      {
+        name: 'Italiano',
+        code: 'it',
+        iso: 'it-IT',
+        file: 'it.js'
+      },
+      {
+        name: 'English',
+        code: 'en',
+        iso: 'en-US',
+        file: 'en.js'
+      }
+    ],
+    lazy: true,
+    langDir: 'langs/',
+    defaultLocale: 'it'
+  },
   /*
    ** Build configuration
    */

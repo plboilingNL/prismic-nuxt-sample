@@ -98,10 +98,13 @@ footer[role="contentinfo"] {
   a, span {
     padding: 0 0.8em;
   }
-  a:not(:last-child) {
+  &__item:not(:last-child) {
     border-right: solid 1px lighten(black,50%);
   }
-  span {
+  span, &__item--current {
     font-weight: bold;
+  }
+  li {
+    display: inline;
   }
 }
