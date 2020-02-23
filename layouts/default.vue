@@ -1,7 +1,9 @@
 <template>
   <div>
     <v-header />
-    <nuxt />
+    <main role="main">
+      <nuxt />
+    </main>
     <v-footer />
   </div>
 </template>

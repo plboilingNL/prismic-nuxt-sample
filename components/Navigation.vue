@@ -2,7 +2,16 @@
   <nav id="nav" class="nav" role="navigation">
     <ul>
       <li v-for="(link, i) in links" :key="i" :class="{ current: isCurrent(link) }">
-        <n-link data-scroll :to="link.path">{{ link.name }}</n-link>
+        <n-link
+          data-scroll
+          :to="
+            localePath({
+              name: link.path
+            })
+          "
+        >
+          {{ link.name }}
+        </n-link>
       </li>
     </ul>
   </nav>
@@ -14,19 +23,19 @@ export default {
     links: [
       {
         name: 'Home',
-        path: '/'
+        path: 'index'
       },
       {
         name: 'Team',
-        path: '#'
+        path: 'index'
       },
       {
         name: 'Contattaci',
-        path: '#'
+        path: 'index'
       },
       {
         name: 'Blog',
-        path: '#'
+        path: 'blog'
       }
     ]
   }),
