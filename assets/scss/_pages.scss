@@ -55,6 +55,7 @@
 
   &__title {
     margin: 0;
+    text-transform: uppercase;
 
     @media ($medium-screen) {
       margin-bottom: 1em;
@@ -74,13 +75,12 @@
   &__text {
     @include grid-column(30%);
 
-    &--aws {
-      padding-bottom: 2em;
+    padding-bottom: 2em;
 
-      @media ($medium-screen) {
-        padding-bottom: 0;
-      }
+    @media ($medium-screen) {
+      padding-bottom: 0;
     }
+    
   }
 }
 

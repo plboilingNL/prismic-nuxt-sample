@@ -6,7 +6,7 @@
           data-scroll
           :to="
             localePath({
-              name: link.path
+              path: link.path
             })
           "
         >
@@ -23,19 +23,20 @@ export default {
     links: [
       {
         name: 'Home',
-        path: 'index'
+        path: '/'
       },
       {
         name: 'Team',
-        path: 'index'
+        path: '/#team',
+        hash: 'team'
       },
       {
         name: 'Contattaci',
-        path: 'index'
+        path: '/#contact-us'
       },
       {
         name: 'Blog',
-        path: 'blog'
+        path: '/blog'
       }
     ]
   }),

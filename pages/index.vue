@@ -1,21 +1,22 @@
 <template>
   <div class="container">
-    <section class="home-section mission">
+    <section v-if="page.mission && page.mission.length > 0" class="home-section mission">
       <div class="mission__text">
-        <prismic-rich-text v-if="page.mission" :field="page.mission" />
+        <prismic-rich-text :field="page.mission" />
       </div>
       <img src="~assets/images/tree.svg" class="mission__image js-tree" title="" />
     </section>
 
-    <section class="home-section partnership">
-      <div class="partnership__img"></div>
-      <div class="partnership__text partnership__text--aws">
-        <h3 class="partnership__title"></h3>
-      </div>
-      <div class="partnership__img"></div>
-      <div class="partnership__text">
-        <h3 class="partnership__title"></h3>
-      </div>
+    <section v-if="page.partner && page.partner.length > 0" class="home-section partnership">
+      <template v-for="partner in page.partner">
+        <div :key="partner.name" class="partnership__img">
+          <prismic-image :field="partner.image" />
+        </div>
+        <div :key="partner.name" class="partnership__text">
+          <h3 class="partnership__title">{{ partner.name }}</h3>
+          <prismic-rich-text v-if="partner.content" :field="partner.content" />
+        </div>
+      </template>
     </section>
 
     <section class="home-section">
@@ -26,7 +27,10 @@
       </ul>
     </section>
 
-    <section class="home-section contact-us"></section>
+    <section v-if="page.contacts && page.contacts.length > 0" class="home-section contact-us">
+      <a id="contact-us" href="#" class="anchor"></a>
+      <prismic-rich-text :field="page.contacts" />
+    </section>
   </div>
 </template>
 
