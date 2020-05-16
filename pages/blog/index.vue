@@ -4,13 +4,15 @@
       <h2 class="posts-list__title">{{ $t('blog.last_posts') }}</h2>
       <!-- {{ content }} -->
 
-      <ul class="posts-list__wrapper">
+      <ul v-if="posts && posts.length > 0" class="posts-list__wrapper">
         <li v-for="(post, i) in posts" :key="i" class="posts-list__item" :class="{ 'posts-list__item--first': i === 0 }">
           <a v-if="i === 0" href="#">
-            <img v-if="post.image" sizes="(max-width: 990px) 100vw (min-width: 991px) 57vw" srcset="" :src="post.image.url" alt="" />
+            <prismic-image v-if="post.data && post.data.image" :field="post.data.image" sizes="(max-width: 990px) 100vw (min-width: 991px) 57vw" />
+            <!-- <img v-if="post.image" srcset="" :src="post.image.url" alt="" /> -->
           </a>
           <a v-else href="#">
-            <img sizes="(max-width: 990px) 100vw (min-width: 991px) 33vw" srcset="" src="" alt="" />
+            <prismic-image v-if="post.data && post.data.image" :field="post.data.image" sizes="(max-width: 990px) 100vw (min-width: 991px) 33vw" />
+            <!-- <img sizes="(max-width: 990px) 100vw (min-width: 991px) 33vw" srcset="" src="" alt="" /> -->
           </a>
 
           <div class="posts-list__item-meta">
@@ -41,32 +43,31 @@
                   })
                 "
               >
-                {{ post.title }}
+                {{ post.data.title[0].text }}
               </n-link>
             </h3>
-            <span class="posts-list__item-author">
+            <span v-if="post.data && post.data.author && post.data.author.uid" class="posts-list__item-author">
               {{ $t('blog.post_of') }}
               <n-link
-                v-if="post.author"
                 :to="
                   localePath({
                     name: 'author',
                     params: {
-                      name: post.author.uid
+                      name: post.data.author.uid
                     }
                   })
                 "
                 rel="author"
               >
-                {{ post.author.name }}
+                {{ post.data.author.slug | breakCamelCase }}
               </n-link>
             </span>
             |
-            <time v-if="post.date" class="posts-list__item-time" :datetime="post.date">
-              {{ post.date.day }} {{ post.date.month }} {{ post.date.year }}
+            <time v-if="post.first_publication_date" class="posts-list__item-time" :datetime="post.first_publication_date">
+              {{ new Date(post.first_publication_date).toLocaleDateString(currentLocale, { year: 'numeric', month: 'long', day: 'numeric' }) }}
             </time>
             <div class="posts-list__item-summary">
-              {{ post.summary }}
+              <prismic-rich-text v-if="post.data && post.data.summary" :field="post.data.summary" />
             </div>
           </div>
         </li>
@@ -80,32 +81,28 @@
 
 <script>
 export default {
-  data: () => ({
-    posts: [
-      {
-        uid: 'sample-uid',
-        title: 'Sample title',
-        summary: 'Sample summary',
-        image: {
-          url: 'https://via.placeholder.com/660x280'
-        },
-        categories: [
-          {
-            name: 'Sample category',
-            slug: 'sample-category'
-          },
-          {
-            name: 'Sample category2',
-            slug: 'sample-category2'
-          }
-        ],
-        author: {
-          uid: 'lorenaramonda',
-          name: 'Lorena Ramonda'
-        }
+  filters: {
+    breakCamelCase(val) {
+      if (!val) return val
+      return val.replace('-', ' ')
+    }
+  },
+  async asyncData({ $prismic, error, app }) {
+    const currentLocale = app.i18n.locales.filter((lang) => lang.code === app.i18n.locale)[0]
+    const doc = await $prismic.api.query($prismic.predicates.at('document.type', 'post'), {
+      orderings: '[document.first_publication_date desc]',
+      lang: currentLocale.iso.toLowerCase()
+    })
+
+    if (doc) {
+      return {
+        posts: doc.results || doc,
+        currentLocale
       }
-    ]
-  }),
+    } else {
+      error({ statusCode: 404, message: 'Page not found' })
+    }
+  },
   head: () => ({
     bodyAttrs: {
       class: 'type-blog'
