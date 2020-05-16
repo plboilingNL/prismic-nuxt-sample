@@ -1,3 +1,7 @@
+import dotenv from 'dotenv'
+// Load environment variables declared in .env into env.process
+dotenv.config()
+
 export default {
   mode: 'universal',
   server: {
@@ -46,7 +50,9 @@ export default {
     // Doc: https://github.com/nuxt-community/dotenv-module
     '@nuxtjs/dotenv',
     // Doc: https://nuxt-community.github.io/nuxt-i18n/
-    'nuxt-i18n'
+    'nuxt-i18n',
+    // Doc: https://prismic-nuxt.js.org/docs/getting-started
+    '@nuxtjs/prismic'
   ],
   /**
    * I18n module configuration
@@ -63,13 +69,20 @@ export default {
       {
         name: 'English',
         code: 'en',
-        iso: 'en-US',
+        iso: 'en-GB',
         file: 'en.js'
       }
     ],
     lazy: true,
     langDir: 'langs/',
     defaultLocale: 'it'
+  },
+  /**
+   * Prismic module configuration
+   */
+  prismic: {
+    endpoint: process.env.PRISMIC_URL,
+    linkResolver: '~/prismic/link-resolver.js'
   },
   /*
    ** Build configuration

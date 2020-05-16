@@ -2,7 +2,7 @@
   <div class="container">
     <section class="home-section mission">
       <div class="mission__text">
-        <h1 class="mission__title"></h1>
+        <prismic-rich-text v-if="page.mission" :field="page.mission" />
       </div>
       <img src="~assets/images/tree.svg" class="mission__image js-tree" title="" />
     </section>
@@ -31,7 +31,31 @@
 </template>
 
 <script>
-export default {}
+export default {
+  async asyncData({ $prismic, error, app }) {
+    const currentLocale = app.i18n.locales.filter((lang) => lang.code === app.i18n.locale)[0]
+    // Doc: https://prismic.io/docs/javascript/query-the-api/query-a-single-type-document
+    const doc = await $prismic.api.getSingle('homepage', {
+      lang: currentLocale.iso.toLowerCase()
+    })
+
+    if (doc) {
+      return {
+        page: doc.data || doc
+      }
+    } else {
+      error({ statusCode: 404, message: 'Page not found' })
+    }
+  },
+  data: () => ({
+    page: {}
+  }),
+  head: () => ({
+    bodyAttrs: {
+      class: 'home type-page'
+    }
+  })
+}
 </script>
 
 <style></style>
