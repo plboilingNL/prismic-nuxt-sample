@@ -18,20 +18,22 @@
             </n-link>
           </strong>
         </div>
-        <h1 id="js-title-post">{{ post.title }}</h1>
-        <time v-if="post.date" class="post__date" :datetime="post.date"> {{ post.date.day }} {{ post.date.month }} {{ post.date.year }}</time>
+        <prismic-rich-text id="js-title-post" :field="post.data.title" />
+        <time v-if="post.first_publication_date" class="post__date" :datetime="post.first_publication_date">
+          {{ new Date(post.first_publication_date).toLocaleDateString(currentLocale, { year: 'numeric', month: 'long', day: 'numeric' }) }}
+        </time>
         <span class="post__reading-time">{{ $t('post.reading_time') }} {{ post.readingTime }}</span>
       </header>
 
-      <img v-if="post.image" sizes="(max-width: 990px) 100vw (min-width: 991px) 57vw" srcset="" :src="post.image.url" alt="" />
+      <prismic-image v-if="post.data && post.data.image" :field="post.data.image" sizes="(max-width: 990px) 100vw (min-width: 991px) 57vw" />
 
       <div class="post__content">
-        {{ post.content }}
+        <prismic-rich-text :field="post.data.content" />
       </div>
       <footer class="post__footer">
         <div class="tags">
           <n-link
-            v-for="(tag, i) in tag"
+            v-for="(tag, i) in post.tag"
             :key="i"
             :to="
               localePath({
@@ -46,45 +48,31 @@
           </n-link>
         </div>
       </footer>
-      <v-author />
+      <!-- <v-author /> -->
     </article>
 
-    <v-post-comments />
-    <v-post-related />
+    <!-- <v-post-comments /> -->
+    <!-- <v-post-related /> -->
   </div>
 </template>
 
 <script>
 export default {
-  data: () => ({
-    post: {
-      title: 'Sample title',
-      image: {
-        url: 'https://via.placeholder.com/660x280'
-      },
-      content: 'Sample content',
-      categories: [
-        {
-          name: 'Sample category',
-          slug: 'sample-category'
-        },
-        {
-          name: 'Sample category2',
-          slug: 'sample-category2'
-        }
-      ],
-      tags: [
-        {
-          name: 'Sample tag',
-          slug: 'sample-tag'
-        },
-        {
-          name: 'Sample tag2',
-          slug: 'sample-tag2'
-        }
-      ]
+  async asyncData({ $prismic, params, error, app }) {
+    const currentLocale = app.i18n.locales.filter((lang) => lang.code === app.i18n.locale)[0]
+    const doc = await $prismic.api.getByUID('post', params.post, {
+      lang: currentLocale.iso.toLowerCase()
+    })
+
+    if (doc) {
+      return {
+        post: doc.results || doc,
+        currentLocale
+      }
+    } else {
+      error({ statusCode: 404, message: 'Page not found' })
     }
-  }),
+  },
   head: () => ({
     bodyAttrs: {
       class: 'type-post'
