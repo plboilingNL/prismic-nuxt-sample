@@ -1,11 +1,13 @@
 import dotenv from 'dotenv'
+import { routes } from './nuxt.config.generate'
 // Load environment variables declared in .env into env.process
 dotenv.config()
 
 export default {
   mode: 'universal',
   server: {
-    port: 4567
+    port: process.env.NUXT_PORT || 3000,
+    host: process.env.NUXT_HOST || 'localhost'
   },
   /*
    ** Headers of the page
@@ -83,6 +85,12 @@ export default {
   prismic: {
     endpoint: process.env.PRISMIC_URL,
     linkResolver: '~/prismic/link-resolver.js'
+  },
+  /*
+   ** Static site generation configuration
+   */
+  generate: {
+    routes
   },
   /*
    ** Build configuration
