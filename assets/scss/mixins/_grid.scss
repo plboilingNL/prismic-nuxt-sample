@@ -1,0 +1,27 @@
+@import "../functions/_functions";
+
+@mixin make-grid($columns: $grid-columns, $gap: $grid-gap, $width: 1fr) {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  @supports ( display: grid ) {
+    // set a generic grid of 12 columns as TEMPLATE
+    display: grid;
+    grid-template-columns: repeat($columns, $width);
+    grid-gap: $gap;  
+  }
+}
+
+@mixin grid-column($width, $start: auto) {
+  @if $width == 100% {
+    width: 100%;
+    grid-column: 1 / -1;
+  } @else {
+    -ms-flex: 0 1 $width;
+    flex: 0 1 $width;
+    $calculatedWidth: strip-unit(($grid-columns * $width) / 100);
+    //grid-column: span $calculatedWidth; // used for debug
+      grid-column: $start / span round($calculatedWidth); // same as auto / span #
+  }
+}

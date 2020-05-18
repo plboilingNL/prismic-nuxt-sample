@@ -1,0 +1,88 @@
+#nav {
+  display: none;
+  font-size: 1.3rem;
+  @media ($medium-screen-max) {
+    #css-open-menu:checked + label + header & {
+      display: block;
+      text-align: center;
+      margin-top: 2em;
+      line-height: 3;
+    }
+  }
+  @media ($medium-screen) {
+    display: block;
+    @include grid-column(60%);
+  }
+
+  li {
+    @media ($medium-screen) {
+      display: inline;
+      &:not(:last-child)::after {
+        content: "/";
+      }
+      &:first-child {
+        @media ($medium-screen) {
+          display: none;
+        }  
+      }
+    }
+    a {
+      margin: 0 1em;
+      text-decoration: none;
+    }
+    &.current a, a:hover {
+      border-bottom: 1px solid #b5b5b5;
+      padding-bottom: 5px;
+    }
+  }
+}
+
+
+.categories-menu {
+  background-color: #fff;
+  width: 100%;
+  overflow-x: hidden;
+  height: 50px;
+  overflow-y: hidden ;
+  line-height: 50px;
+  text-transform: uppercase;
+  font-size: .75rem;
+  border-bottom: 1px dashed #212121;
+
+  &.sticky {
+    position: fixed;
+    width: 100%;
+    top: 70px;
+    left: 0;
+    border-top: 3px solid #dfdfdf;
+    z-index: 998;
+    margin-top: 0;
+  }
+
+  .container {
+    display: block;
+    padding-left: 0;
+    white-space: nowrap;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+    height: 70px;
+
+
+    li {
+      display: inline;
+      padding: 0 15px;
+
+      a {
+        text-decoration: none;
+      }
+
+      &.current > a, a:hover {
+        text-decoration: underline;
+      }
+    }
+
+
+  }
+
+}

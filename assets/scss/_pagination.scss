@@ -1,0 +1,37 @@
+.pagination {
+  display: block;
+  text-align: right;
+  margin-top: 1em;
+
+  li {
+    border-right: none;
+    margin-left: 1px;
+    display: inline-block;
+    &.active a {
+      font-weight: bold;
+      text-decoration: underline;
+    }
+    &:hover a {
+      background-color: #dedede;
+      text-decoration: none;
+    }
+    > a, > span {
+      padding: 6px 10px;
+      text-decoration: none;
+    }
+    [aria-label="First"], [aria-label="Last"] {
+      display: none;
+    }
+  }
+}
+
+.posts-list H1 + .pagination {
+  margin-top: -2.4em;
+}
+
+.posts-list .list + .pagination {
+  text-align: center;
+  border-bottom: 1px dashed #212121;
+  padding-bottom: 1em;
+  margin-bottom: 1em;
+}

@@ -1,6 +1,16 @@
-# bitbull-nuxt
+# Prismic.io integration with Nuxt.js
 
-> My terrific Nuxt.js project
+> Sample site
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/ff502d54-5903-4791-964e-8766fc7a7b84/deploy-status)](https://app.netlify.com/sites/pedantic-dijkstra-d231ca/deploys)
+
+👉 [Demo](https://pedantic-dijkstra-d231ca.netlify.app/)
+
+## Configuration
+
+**.env**
+
+`PRISMIC_URL=https://<YOUR-PRISMIC-REPO>.prismic.io/api/v2`
 
 ## Build Setup
 
