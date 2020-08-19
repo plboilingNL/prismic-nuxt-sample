@@ -6,16 +6,16 @@ HTML, BODY {
   min-height: 100%;
 }
 
-BODY {
-  font-family: $font-main;
-  font-size: $font-size-body;
-  line-height: 1.714em;
-  padding-top: 97px;
-  color: $color-text;
-  @media ($medium-screen) {
-    padding-top: 0;
-  }
-}
+// BODY {
+//   font-family: $font-main;
+//   font-size: $font-size-body;
+//   line-height: 1.714em;
+//   padding-top: 97px;
+//   color: $color-text;
+//   @media ($medium-screen) {
+//     padding-top: 0;
+//   }
+// }
 
 // img alignment
 img {

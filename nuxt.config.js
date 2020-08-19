@@ -23,7 +23,13 @@ export default {
         content: process.env.npm_package_description || ''
       }
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
+    link: [
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel: 'stylesheet', href: 'https://rsms.me/inter/inter.css' }
+    ]
+  },
+  bodyAttrs: {
+    class: 'antialiased'
   },
   /*
    ** Customize the progress-bar color
@@ -32,7 +38,7 @@ export default {
   /*
    ** Global CSS
    */
-  css: ['@/assets/scss/screen.scss'],
+  css: ['@/assets/scss/main.css'],
   /*
    ** Plugins to load before mounting the App
    */
@@ -42,8 +48,14 @@ export default {
    */
   buildModules: [
     // Doc: https://github.com/nuxt-community/eslint-module
-    '@nuxtjs/eslint-module'
+    '@nuxtjs/eslint-module',
+    '@nuxtjs/tailwindcss'
   ],
+  // googleFonts: {
+  //   families: {
+  //     Inter: true
+  //   }
+  // },
   /*
    ** Nuxt.js modules
    */
@@ -63,21 +75,27 @@ export default {
   i18n: {
     locales: [
       {
-        name: 'Italiano',
-        code: 'it',
-        iso: 'it-IT',
-        file: 'it.js'
-      },
-      {
         name: 'English',
         code: 'en',
         iso: 'en-GB',
         file: 'en.js'
+      },
+      {
+        name: 'Polski',
+        code: 'pl',
+        iso: 'pl-PL',
+        file: 'pl.js'
+      },
+      {
+        name: 'Nederlands',
+        code: 'nl',
+        iso: 'nl-NL',
+        file: 'nl.js'
       }
     ],
     lazy: true,
     langDir: 'langs/',
-    defaultLocale: 'it'
+    defaultLocale: 'pl'
   },
   /**
    * Prismic module configuration

@@ -9,7 +9,7 @@ const routes = async function() {
     const api = await Prismic.getApi(prismic)
     const response = await api.query(Prismic.Predicates.at('document.type', 'post'), { lang: '*' })
     return response.results.map((post) => {
-      if (post.lang === 'it-it') return '/blog/' + post.uid
+      if (post.lang === 'pl=pl') return '/blog/' + post.uid
       return `/${post.lang.split('-')[0]}/blog/${post.uid}`
     })
   } catch (err) {

@@ -2,7 +2,7 @@
   <footer id="footer" role="contentinfo">
     <div class="container">
       <v-socials />
-      Bitbull Srl - {{ $t('corporate.vat') }} 03526400043 - {{ $t('corporate.share_capital') }}
+      Desk Code - {{ $t('corporate.vat') }} 03526400043 - {{ $t('corporate.share_capital') }}
       <v-lang-switcher />
     </div>
   </footer>
