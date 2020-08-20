@@ -222,7 +222,7 @@ export default {
   }
 }
 </script>
-<style scoped>
+<style>
 .slick-dots li button:before {
   font-family: 'slick';
   font-size: 6px;
