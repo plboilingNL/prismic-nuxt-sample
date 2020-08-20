@@ -87,7 +87,7 @@
       <div class="relative max-w-xl px-4 mx-auto sm:px-6 lg:px-8 lg:max-w-screen-xl">
         <div class="relative">
           <h3 class="text-3xl font-extrabold leading-8 tracking-tight text-center text-gray-900 sm:text-4xl sm:leading-10">
-            A faster way to launch
+            A faster way to launch j
           </h3>
           <p class="max-w-3xl mx-auto mt-4 text-xl leading-7 text-center text-gray-500">
             Save time and money and build a SaaS app faster then ever
