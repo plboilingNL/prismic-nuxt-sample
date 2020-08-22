@@ -1,5 +1,6 @@
 <template>
   <div class="container">
+    <BreadCrumbs />
     <section class="posts-list">
       <h2 class="posts-list__title">{{ $t('blog.last_posts') }}</h2>
       <!-- {{ content }} -->
@@ -80,7 +81,11 @@
 </template>
 
 <script>
+import BreadCrumbs from '@/components/BreadCrumbs'
 export default {
+  components: {
+    BreadCrumbs
+  },
   filters: {
     breakCamelCase(val) {
       if (!val) return val

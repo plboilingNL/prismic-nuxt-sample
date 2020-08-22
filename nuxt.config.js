@@ -110,6 +110,35 @@ export default {
   generate: {
     routes
   },
+  routes: [
+    {
+      path: '/',
+      name: 'home', // Be sure to set 'name' property for the route you want to be "parent" route
+      meta: {
+        breadcrumb: 'Home' // This is a shorthand for case you want to set just breadcrumb label
+      }
+    },
+    {
+      path: '/saas',
+      name: 'saas',
+      meta: {
+        breadcrumb: {
+          label: 'Saas',
+          parent: 'home' // Here you should use exact string as for name property in "parent" route
+        }
+      }
+    },
+    {
+      path: '/blog',
+      name: 'blog',
+      meta: {
+        breadcrumb: {
+          label: 'blog',
+          parent: 'home' // Here you should use exact string as for name property in "parent" route
+        }
+      }
+    }
+  ],
   /*
    ** Build configuration
    */

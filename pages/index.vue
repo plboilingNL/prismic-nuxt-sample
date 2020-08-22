@@ -1,14 +1,16 @@
 /* eslint-disable vue/require-v-for-key */
 <template>
   <div>
-    <div class="container">
-      <section v-if="page.mission && page.mission.length > 0" class="home-section mission">
-        <div class="mission__text">
-          <prismic-rich-text :field="page.mission" />
+    <section v-if="page.mission && page.mission.length > 0" class="">
+      <div class="container flex flex-col max-w-xl m-auto md:flex-row">
+        <div class="flex flex-col items-start justify-center w-full py-8 lg:w-1/2">
+          <prismic-rich-text :field="page.mission" class="prose" />
         </div>
-        <img src="~assets/images/tree.svg" class="mission__image js-tree" title="" />
-      </section>
-    </div>
+        <div class="w-full lg:w-1/3 lg:py-6">
+          <img src="~assets/images/devices.png" class="w-full" title="" />
+        </div>
+      </div>
+    </section>
     <section v-if="page.partner && page.partner.length > 0">
       <div class="bg-white">
         <div class="max-w-screen-xl px-4 py-12 mx-auto sm:px-6 lg:px-8 lg:py-24">
@@ -243,6 +245,7 @@
 import VueSlickCarousel from '@/components/VueSlickCarousel.vue'
 
 export default {
+  name: 'Home',
   components: { VueSlickCarousel },
   async asyncData({ $prismic, error, app }) {
     const currentLocale = app.i18n.locales.filter((lang) => lang.code === app.i18n.locale)[0]
@@ -259,10 +262,15 @@ export default {
       error({ statusCode: 404, message: 'Page not found' })
     }
   },
-  data: () => ({
-    page: {}
-  }),
+  data() {
+    return {
+      meta: {
+        title: 'Home'
+      }
+    }
+  },
   head: () => ({
+    title: this.title,
     bodyAttrs: {
       class: 'home type-page'
     }

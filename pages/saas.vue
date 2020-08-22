@@ -1,6 +1,7 @@
 <template>
   <div>
     <div class="relative bg-white">
+      <BreadCrumbs />
       <div class="hidden lg:block lg:absolute lg:inset-0">
         <svg class="absolute top-0 transform translate-x-64 -translate-y-8 left-1/2" width="640" height="784" fill="none" viewBox="0 0 640 784">
           <defs>
@@ -724,7 +725,20 @@
   </div>
 </template>
 <script>
-export default {}
+import BreadCrumbs from '@/components/BreadCrumbs'
+export default {
+  components: {
+    BreadCrumbs
+  },
+  layout: 'blog',
+  data() {
+    return {
+      meta: {
+        title: 'saas'
+      }
+    }
+  }
+}
 </script>
 <style>
 .to-blue-ribbon-500 {

@@ -23,7 +23,7 @@ export default {
     VNavigation
   },
   data: () => ({
-    siteName: 'Bitbull'
+    siteName: 'Desk Code'
   })
 }
 </script>
