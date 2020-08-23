@@ -29,6 +29,7 @@
     "nuxt": "^2.0.0",
     "nuxt-i18n": "^6.5.0",
     "vue-2-breadcrumbs": "^0.7.9",
+    "vue-2-crumbs": "^0.5.4",
     "vue-clickaway": "^2.2.2",
     "vue-slick-carousel": "^1.0.6"
   },

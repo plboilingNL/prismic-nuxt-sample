@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <BreadCrumbs />
+    <app-breadcrumbs></app-breadcrumbs>
     <section class="posts-list">
       <h2 class="posts-list__title">{{ $t('blog.last_posts') }}</h2>
       <!-- {{ content }} -->
@@ -81,10 +81,10 @@
 </template>
 
 <script>
-import BreadCrumbs from '@/components/BreadCrumbs'
+import AppBreadcrumbs from '@/components/BreadCrumbs'
 export default {
   components: {
-    BreadCrumbs
+    AppBreadcrumbs
   },
   filters: {
     breakCamelCase(val) {

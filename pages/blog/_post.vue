@@ -1,7 +1,7 @@
 <template>
   <div class="min-h-screen bg-gray-50">
     <header class="container py-16 mx-auto md:py-24">
-      <BreadCrumbs class="z-50" />
+      <breadcrumbs></breadcrumbs>
     </header>
 
     <article class="post">
@@ -22,7 +22,7 @@
             </n-link>
           </strong>
         </div>
-        <prismic-rich-text id="js-title-post" :field="post.data.title" />
+        <prismic-rich-text id="prose" :field="post.data.title" />
         <time v-if="post.first_publication_date" class="post__date" :datetime="post.first_publication_date">
           {{ new Date(post.first_publication_date).toLocaleDateString(currentLocale, { year: 'numeric', month: 'long', day: 'numeric' }) }}
         </time>
@@ -31,7 +31,7 @@
 
       <prismic-image v-if="post.data && post.data.image" :field="post.data.image" sizes="(max-width: 990px) 100vw (min-width: 991px) 57vw" />
 
-      <div class="post__content">
+      <div class="prose">
         <prismic-rich-text :field="post.data.content" />
       </div>
       <footer class="post__footer">
@@ -61,10 +61,10 @@
 </template>
 
 <script>
-import BreadCrumbs from '@/components/BreadCrumbs'
+import Breadcrumbs from '@/components/BreadCrumbs'
 export default {
   components: {
-    BreadCrumbs
+    Breadcrumbs
   },
   async asyncData({ $prismic, params, error, app }) {
     const currentLocale = app.i18n.locales.filter((lang) => lang.code === app.i18n.locale)[0]
@@ -81,11 +81,23 @@ export default {
       error({ statusCode: 404, message: 'Page not found' })
     }
   },
+  data() {
+    return {
+      title: 'Post',
+      parent: 'blog'
+    }
+  },
   head: () => ({
     bodyAttrs: {
       class: 'type-post'
     }
-  })
+  }),
+  breadcrumb() {
+    return {
+      label: this.title,
+      parent: this.parent
+    }
+  }
 }
 </script>
 

@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="relative bg-white">
-      <BreadCrumbs />
+      <app-breadcrumbs></app-breadcrumbs>
       <div class="hidden lg:block lg:absolute lg:inset-0">
         <svg class="absolute top-0 transform translate-x-64 -translate-y-8 left-1/2" width="640" height="784" fill="none" viewBox="0 0 640 784">
           <defs>
@@ -725,10 +725,11 @@
   </div>
 </template>
 <script>
-import BreadCrumbs from '@/components/BreadCrumbs'
+import AppBreadcrumbs from '@/components/BreadCrumbs'
 export default {
+  name: 'Saas',
   components: {
-    BreadCrumbs
+    AppBreadcrumbs
   },
   layout: 'blog',
   data() {

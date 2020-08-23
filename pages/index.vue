@@ -270,7 +270,6 @@ export default {
     }
   },
   head: () => ({
-    title: this.title,
     bodyAttrs: {
       class: 'home type-page'
     }

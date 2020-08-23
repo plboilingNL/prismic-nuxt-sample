@@ -42,7 +42,7 @@ export default {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [],
+  plugins: ['@/plugins/breadcrumbs.js'],
   /*
    ** Nuxt.js dev-modules
    */
@@ -110,35 +110,37 @@ export default {
   generate: {
     routes
   },
-  routes: [
-    {
-      path: '/',
-      name: 'home', // Be sure to set 'name' property for the route you want to be "parent" route
-      meta: {
-        breadcrumb: 'Home' // This is a shorthand for case you want to set just breadcrumb label
-      }
-    },
-    {
-      path: '/saas',
-      name: 'saas',
-      meta: {
-        breadcrumb: {
-          label: 'Saas',
-          parent: 'home' // Here you should use exact string as for name property in "parent" route
+  router: {
+    routes: [
+      {
+        path: '/',
+        name: 'Home', // Be sure to set 'name' property for the route you want to be "parent" route
+        meta: {
+          breadcrumb: 'Home'
+        }
+      },
+      {
+        path: '/saas',
+        name: 'saas',
+        meta: {
+          breadcrumb: {
+            label: 'Saas',
+            parent: 'home' // Here you should use exact string as for name property in "parent" route
+          }
+        }
+      },
+      {
+        path: '/blog/',
+        name: 'blog',
+        meta: {
+          breadcrumb: {
+            label: 'blog',
+            parent: 'blog' // Here you should use exact string as for name property in "parent" route
+          }
         }
       }
-    },
-    {
-      path: '/blog',
-      name: 'blog',
-      meta: {
-        breadcrumb: {
-          label: 'blog',
-          parent: 'home' // Here you should use exact string as for name property in "parent" route
-        }
-      }
-    }
-  ],
+    ]
+  },
   /*
    ** Build configuration
    */
