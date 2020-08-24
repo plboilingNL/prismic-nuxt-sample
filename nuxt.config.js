@@ -34,7 +34,7 @@ export default {
   /*
    ** Customize the progress-bar color
    */
-  loading: { color: '#fff' },
+  loading: { color: '#0d6faa' },
   /*
    ** Global CSS
    */
@@ -66,7 +66,29 @@ export default {
     // Doc: https://nuxt-community.github.io/nuxt-i18n/
     'nuxt-i18n',
     // Doc: https://prismic-nuxt.js.org/docs/getting-started
-    '@nuxtjs/prismic'
+    '@nuxtjs/prismic',
+    ['nuxt-lazy-load', {
+      // These are the default values
+      images: true,
+      videos: true,
+      audios: true,
+      iframes: true,
+      native: false,
+      polyfill: true,
+      directiveOnly: false,
+
+      // Default image must be in the static folder
+      // ? defaultImage: '/images/default-image.jpg',
+
+      // To remove class set value to false
+      loadingClass: 'isLoading',
+      loadedClass: 'isLoaded',
+      appendClass: 'lazyLoad',
+
+      observerConfig: {
+        // See IntersectionObserver documentation
+      }
+    }]
   ],
   /**
    * I18n module configuration

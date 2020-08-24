@@ -1,3 +1,13 @@
 {
-  "workbench.colorCustomizations": {}
+  "netlify.site_id": "416ad570-f89a-46c4-ac66-2900f7bd9d09",
+  "netlify.build_hook": "https://api.netlify.com/build_hooks/5f440d587d14cf446abbb2c9",
+  "netlify.api_token": "f24b954b8a3685fa7df366750f8fd948d04533e55ca0a3e60829d01a676c3b96",
+  // "netlify.api_token": "<personal_access_token>",
+  // "netlify.set_interval": "<number>",
+  // "netlify.build_status_colors": {
+  //   "building": "<hex|name>",
+  //   "enqueued": "<hex|name>",
+  //   "deploy-successful": "<hex|name>",
+  //   "error": "<hex|name>"
+  // }
 }
