@@ -1,7 +1,6 @@
 <template>
   <div class="min-h-screen bg-gray-50">
     <header class="container py-16 mx-auto md:py-24">
-      <breadcrumbs></breadcrumbs>
     </header>
 
     <article class="post">
@@ -61,11 +60,7 @@
 </template>
 
 <script>
-import Breadcrumbs from '@/components/BreadCrumbs'
 export default {
-  components: {
-    Breadcrumbs
-  },
   async asyncData({ $prismic, params, error, app }) {
     const currentLocale = app.i18n.locales.filter((lang) => lang.code === app.i18n.locale)[0]
     const doc = await $prismic.api.getByUID('post', params.post, {

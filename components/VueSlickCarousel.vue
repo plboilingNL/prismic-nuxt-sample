@@ -200,8 +200,8 @@
 </template>
 <script>
 import VueSlickCarousel from 'vue-slick-carousel'
-import '~/assets/scss/vendors/vue-slick-carousel.css'
-import '~/assets/scss/vendors/vue-slick-carousel-theme.css'
+import '../assets/scss/vendors/vue-slick-carousel.css'
+import '../assets/scss/vendors/vue-slick-carousel-theme.css'
 export default {
   components: {
     VueSlickCarousel

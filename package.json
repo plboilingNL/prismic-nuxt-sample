@@ -31,8 +31,7 @@
     "nuxt-i18n": "^6.5.0",
     "nuxt-lazy-load": "^1.2.4",
     "nuxt-responsive-loader": "^2.0.1",
-    "vue-2-breadcrumbs": "^0.7.9",
-    "vue-2-crumbs": "^0.5.4",
+    "tailwindcss": "^1.7.3",
     "vue-clickaway": "^2.2.2",
     "vue-slick-carousel": "^1.0.6"
   },
@@ -60,7 +59,6 @@
     "sass-loader": "^8.0.2",
     "sharp": "^0.26.0",
     "sqip-loader": "^1.0.0",
-    "tailwindcss": "^1.7.3",
     "webp-loader": "^0.6.0"
   }
 }
