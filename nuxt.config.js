@@ -1,3 +1,4 @@
+import path from 'path'
 import dotenv from 'dotenv'
 import { routes } from './nuxt.config.generate'
 // Load environment variables declared in .env into env.process
@@ -42,6 +43,9 @@ export default {
   /*
    ** Plugins to load before mounting the App
    */
+
+  components: true,
+
   plugins: ['@/plugins/breadcrumbs.js', '~/plugins/vue-lazysizes.client.js', '@/plugins/components.js'],
   /*
    ** Nuxt.js dev-modules
@@ -49,17 +53,8 @@ export default {
   buildModules: [
     // Doc: https://github.com/nuxt-community/eslint-module
     '@nuxtjs/eslint-module',
-    '@nuxtjs/tailwindcss',
-    '@aceforth/nuxt-optimized-images'
+    '@nuxtjs/tailwindcss'
   ],
-  optimizedImages: {
-    optimizeImages: true
-  },
-  // googleFonts: {
-  //   families: {
-  //     Inter: true
-  //   }
-  // },
   /*
    ** Nuxt.js modules
    */
@@ -70,8 +65,20 @@ export default {
     // Doc: https://nuxt-community.github.io/nuxt-i18n/
     'nuxt-i18n',
     // Doc: https://prismic-nuxt.js.org/docs/getting-started
-    '@nuxtjs/prismic'
+    '@nuxtjs/prismic',
+    'nuxt-purgecss',
+    'nuxt-responsive-loader'
   ],
+  responsiveLoader: {
+    name: 'images/[hash:7]-[width].[ext]',
+    sizes: [320, 640, 768, 960, 1024, 1280, 1600],
+    placeholder: true, // use [name] to keep the original filename // 85 is default. Tweak this if you need to
+    adapter: require('responsive-loader/sharp')
+  },
+  purgeCSS: {
+    mode: 'postcss',
+    enabled: process.env.NODE_ENV === 'production'
+  },
   /**
    * I18n module configuration
    * See https://nuxt-community.github.io/nuxt-i18n/options-reference.html
@@ -149,11 +156,54 @@ export default {
    ** Build configuration
    */
   build: {
-    extend(config, { isClient, isDev, loaders: { vue } }) {
-      vue.transformAssetUrls.LazyImage = ['src']
+    extend(config, { isDev, isClient, loaders: { vue } }) {
+      if (isClient) {
+        vue.transformAssetUrls.img = ['data-src', 'src']
+        vue.transformAssetUrls.source = ['data-srcset', 'srcset']
+      }
+    },
+    // extend(config, { isDev, isClient }) {
+    //   config.module.rules.unshift({
+    //     test: /\.(png|jpe?g|gif)$/,
+    //     use: {
+    //       loader: 'responsive-loader',
+    //       options: {
+    //         placeholder: true,
+    //         quality: 95,
+    //         placeholderSize: 30,
+    //         name: 'images/[name].[hash:hex:7].[width].[ext]',
+    //         adapter: require('responsive-loader/sharp')
+    //       }
+    //     }
+    //   })
+    //   config.module.rules.forEach((value) => {
+    //     if (String(value.test) === String(/\.(png|jpe?g|gif|svg|webp)$/)) {
+
+    //       value.test = /\.(svg|webp)$/
+    //     }
+    //   })
+    // },
+    postcss: {
+      plugins: {
+        'postcss-import': {},
+        tailwindcss: path.resolve(__dirname, './tailwind.config.js'),
+        'postcss-nested': {}
+      }
+    },
+    preset: {
+      stage: 1 // see https://tailwindcss.com/docs/using-with-preprocessors#future-css-featuress
+    },
+    optimization: {
+      splitChunks: {
+        cacheGroups: {
+          tailwindConfig: {
+            test: /tailwind\.config/,
+            chunks: 'all',
+            priority: 10,
+            name: true
+          }
+        }
+      }
     }
   }
-  /*
-   ** You can extend webpack config here
-   */
 }

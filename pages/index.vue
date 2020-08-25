@@ -7,7 +7,11 @@
           <prismic-rich-text :field="page.mission" class="prose" />
         </div>
         <div class="w-full lg:w-1/3 lg:py-6">
-          <img class="w-full" src="~/assets/images/image_1_xl.jpg" alt="something" />
+          <img :data-src="'~/assets/images/image_1_xl.jpg'" :data-srcset="require('~/assets/images/image_1_xl.jpg').srcSet" class="w-full lazyload" />
+          <!-- <img class="w-full lazyload" :src="require('~/assets/images/image_1_xl.jpg').src" alt="Picture of the boat" /> -->
+        </div>
+        <div class="w-full lg:w-1/3 lg:py-6">
+          <img sizes="(min-width: 768px) 60vw, 95vw" />
         </div>
       </div>
     </section>
