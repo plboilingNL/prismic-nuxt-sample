@@ -7,7 +7,7 @@
           <prismic-rich-text :field="page.mission" class="prose" />
         </div>
         <div class="w-full lg:w-1/3 lg:py-6">
-          <LazyImage class="w-full" src="~assets/images/image_1_xl.jpg" alt="something" />
+          <LazyImage class="w-full" src="/assets/images/image_1_xl.jpg" alt="something" />
         </div>
       </div>
     </section>
