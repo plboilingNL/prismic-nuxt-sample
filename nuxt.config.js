@@ -44,9 +44,7 @@ export default {
    ** Plugins to load before mounting the App
    */
 
-  components: true,
-
-  plugins: ['@/plugins/breadcrumbs.js', '~/plugins/vue-lazysizes.client.js', '@/plugins/components.js'],
+  plugins: ['~/plugins/vue-lazysizes.client.js'],
   /*
    ** Nuxt.js dev-modules
    */
@@ -71,7 +69,7 @@ export default {
   ],
   responsiveLoader: {
     name: 'images/[hash:7]-[width].[ext]',
-    sizes: [320, 640, 768, 960, 1024, 1280, 1600],
+    sizes: [320, 768, 1024, 1280],
     placeholder: true, // use [name] to keep the original filename // 85 is default. Tweak this if you need to
     adapter: require('responsive-loader/sharp')
   },
