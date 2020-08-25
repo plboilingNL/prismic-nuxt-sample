@@ -243,10 +243,10 @@
 
 <script>
 import VueSlickCarousel from '@/components/VueSlickCarousel.vue'
-import LazyImage from '@/components/LazyImage.vue'
+
 export default {
   name: 'Home',
-  components: { VueSlickCarousel, LazyImage },
+  components: { VueSlickCarousel },
   async asyncData({ $prismic, error, app }) {
     const currentLocale = app.i18n.locales.filter((lang) => lang.code === app.i18n.locale)[0]
     // Doc: https://prismic.io/docs/javascript/query-the-api/query-a-single-type-document
