@@ -1,7 +1,6 @@
 <template>
   <div class="min-h-screen bg-gray-50">
-    <header class="container py-16 mx-auto md:py-24">
-    </header>
+    <header class="container py-16 mx-auto md:py-24"></header>
 
     <article class="post">
       <header class="post__header">
