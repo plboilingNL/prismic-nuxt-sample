@@ -36,6 +36,7 @@
     "vue-slick-carousel": "^1.0.6"
   },
   "devDependencies": {
+    "@aceforth/nuxt-optimized-images": "^1.2.0",
     "@nuxtjs/eslint-config": "^2.0.0",
     "@nuxtjs/eslint-module": "^1.0.0",
     "@nuxtjs/tailwindcss": "^3.0.0",
@@ -44,9 +45,15 @@
     "eslint-config-prettier": "^6.10.0",
     "eslint-plugin-nuxt": ">=0.4.2",
     "eslint-plugin-prettier": "^3.1.2",
+    "imagemin-mozjpeg": "^9.0.0",
+    "imagemin-svgo": "^8.0.0",
     "lint-staged": "^10.0.0",
+    "lqip-loader": "^2.2.0",
     "node-sass": "^4.13.1",
     "prettier": "^1.19.1",
-    "sass-loader": "^8.0.2"
+    "responsive-loader": "^2.0.2",
+    "sass-loader": "^8.0.2",
+    "sqip-loader": "^1.0.0",
+    "webp-loader": "^0.6.0"
   }
 }
