@@ -7,7 +7,7 @@
           <prismic-rich-text :field="page.mission" class="prose" />
         </div>
         <div class="w-full lg:w-1/3 lg:py-6">
-          <img src="~/static/images/image_1_xl.jpg" class="w-full" title="" />
+          <LazyImage class="w-full" src="~assets/images/image_1_xl.jpg" alt="something" />
         </div>
       </div>
     </section>
@@ -243,10 +243,10 @@
 
 <script>
 import VueSlickCarousel from '@/components/VueSlickCarousel.vue'
-
+import LazyImage from '@/components/LazyImage.vue'
 export default {
   name: 'Home',
-  components: { VueSlickCarousel },
+  components: { VueSlickCarousel, LazyImage },
   async asyncData({ $prismic, error, app }) {
     const currentLocale = app.i18n.locales.filter((lang) => lang.code === app.i18n.locale)[0]
     // Doc: https://prismic.io/docs/javascript/query-the-api/query-a-single-type-document

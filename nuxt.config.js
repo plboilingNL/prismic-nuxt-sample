@@ -42,7 +42,7 @@ export default {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: ['@/plugins/breadcrumbs.js'],
+  plugins: ['@/plugins/breadcrumbs.js', '~/plugins/vue-lazysizes.client.js', '@/plugins/components.js'],
   /*
    ** Nuxt.js dev-modules
    */
@@ -67,28 +67,6 @@ export default {
     'nuxt-i18n',
     // Doc: https://prismic-nuxt.js.org/docs/getting-started
     '@nuxtjs/prismic',
-    ['nuxt-lazy-load', {
-      // These are the default values
-      images: true,
-      videos: true,
-      audios: true,
-      iframes: true,
-      native: false,
-      polyfill: true,
-      directiveOnly: false,
-
-      // Default image must be in the static folder
-      // ? defaultImage: '/images/default-image.jpg',
-
-      // To remove class set value to false
-      loadingClass: 'isLoading',
-      loadedClass: 'isLoaded',
-      appendClass: 'lazyLoad',
-
-      observerConfig: {
-        // See IntersectionObserver documentation
-      }
-    }]
   ],
   /**
    * I18n module configuration
@@ -167,9 +145,13 @@ export default {
    ** Build configuration
    */
   build: {
+    extend(config, { isClient, isDev, loaders: { vue } }) {
+      vue.transformAssetUrls.LazyImage = ["src"];
+   },
+    extend(config, ctx) {}
+  },
     /*
      ** You can extend webpack config here
      */
-    extend(config, ctx) {}
-  }
+
 }
