@@ -66,7 +66,7 @@ export default {
     // Doc: https://nuxt-community.github.io/nuxt-i18n/
     'nuxt-i18n',
     // Doc: https://prismic-nuxt.js.org/docs/getting-started
-    '@nuxtjs/prismic',
+    '@nuxtjs/prismic'
   ],
   /**
    * I18n module configuration
@@ -146,12 +146,10 @@ export default {
    */
   build: {
     extend(config, { isClient, isDev, loaders: { vue } }) {
-      vue.transformAssetUrls.LazyImage = ["src"];
-   },
-    extend(config, ctx) {}
-  },
-    /*
-     ** You can extend webpack config here
-     */
-
+      vue.transformAssetUrls.LazyImage = ['src']
+    }
+  }
+  /*
+   ** You can extend webpack config here
+   */
 }
