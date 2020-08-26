@@ -44,7 +44,7 @@ export default {
    ** Plugins to load before mounting the App
    */
 
-  plugins: ['~/plugins/vue-lazysizes.client.js'],
+  plugins: ['~/plugins/vue-lazysizes.client.js', { src: './plugins/vue-slick-carousel.js' }],
   /*
    ** Nuxt.js dev-modules
    */
@@ -159,13 +159,6 @@ export default {
       if (isClient) {
         vue.transformAssetUrls.img = ['data-src', 'src']
         vue.transformAssetUrls.source = ['data-srcset', 'srcset']
-      }
-      if (isServer) {
-        config.externals += [
-          require('webpack-node-externals')({
-            allowlist: [/^vue-slick/]
-          })
-        ]
       }
     },
     // extend(config, { isDev, isClient }) {
