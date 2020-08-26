@@ -75,7 +75,8 @@ export default {
   },
   purgeCSS: {
     mode: 'postcss',
-    enabled: process.env.NODE_ENV === 'production'
+    enabled: process.env.NODE_ENV === 'production',
+    whitelistPatterns: [/slick$/]
   },
   /**
    * I18n module configuration
