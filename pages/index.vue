@@ -229,7 +229,7 @@
               </div>
             </div>
           </div>
-          <vue-slick-carousel />
+          <VueSlickCarousel />
         </div>
       </div>
     </div>
