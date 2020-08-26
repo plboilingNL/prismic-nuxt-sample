@@ -5,7 +5,7 @@
         <div class="relative mx-auto text-base max-w-prose lg:max-w-none">
           <blockquote class="relative bg-white rounded-lg shadow-lg">
             <div class="px-6 py-8 rounded-t-lg sm:px-10 sm:pt-10 sm:pb-8">
-              <img src="https://tailwindui.com/img/logos/workcation-color.svg" alt="Workcation" class="h-8" />
+              <img :src="require('https://tailwindui.com/img/logos/workcation-color.svg?original')" alt="Workcation" class="h-8" />
               <div class="relative mt-8 text-lg font-medium leading-7 text-gray-700">
                 <svg
                   class="absolute top-0 left-0 w-8 h-8 text-gray-200 transform -translate-x-3 -translate-y-2"
@@ -26,7 +26,9 @@
               <div class="mr-4 border-2 border-white rounded-full sm:-mt-15 sm:mr-6">
                 <img
                   class="w-12 h-12 bg-indigo-300 rounded-full sm:w-20 sm:h-20"
-                  src="https://images.unsplash.com/photo-1500917293891-ef795e70e1f6?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2.5&w=160&h=160&q=80"
+                  :src="
+                    require('https://images.unsplash.com/photo-1500917293891-ef795e70e1f6?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2.5&w=160&h=160&q=80?original')
+                  "
                   alt=""
                 />
               </div>
@@ -57,7 +59,7 @@
           </svg> -->
           <blockquote class="relative bg-white rounded-lg shadow-lg">
             <div class="px-6 py-8 rounded-t-lg sm:px-10 sm:pt-10 sm:pb-8">
-              <img src="https://tailwindui.com/img/logos/workcation-color.svg" alt="Workcation" class="h-8" />
+              <img :src="require('https://tailwindui.com/img/logos/workcation-color.svg?original')" alt="Workcation" class="h-8" />
               <div class="relative mt-8 text-lg font-medium leading-7 text-gray-700">
                 <svg
                   class="absolute top-0 left-0 w-8 h-8 text-gray-200 transform -translate-x-3 -translate-y-2"
@@ -78,7 +80,9 @@
               <div class="mr-4 border-2 border-white rounded-full sm:-mt-15 sm:mr-6">
                 <img
                   class="w-12 h-12 bg-indigo-300 rounded-full sm:w-20 sm:h-20"
-                  src="https://images.unsplash.com/photo-1500917293891-ef795e70e1f6?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2.5&w=160&h=160&q=80"
+                  :src="
+                    require('https://images.unsplash.com/photo-1500917293891-ef795e70e1f6?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2.5&w=160&h=160&q=80?original')
+                  "
                   alt=""
                 />
               </div>
@@ -109,7 +113,7 @@
           </svg> -->
           <blockquote class="relative bg-white rounded-lg shadow-lg">
             <div class="px-6 py-8 rounded-t-lg sm:px-10 sm:pt-10 sm:pb-8">
-              <img src="https://tailwindui.com/img/logos/workcation-color.svg" alt="Workcation" class="h-8" />
+              <img :src="require('https://tailwindui.com/img/logos/workcation-color.svg?original')" alt="Workcation" class="h-8" />
               <div class="relative mt-8 text-lg font-medium leading-7 text-gray-700">
                 <svg
                   class="absolute top-0 left-0 w-8 h-8 text-gray-200 transform -translate-x-3 -translate-y-2"
@@ -130,7 +134,9 @@
               <div class="mr-4 border-2 border-white rounded-full sm:-mt-15 sm:mr-6">
                 <img
                   class="w-12 h-12 bg-indigo-300 rounded-full sm:w-20 sm:h-20"
-                  src="https://images.unsplash.com/photo-1500917293891-ef795e70e1f6?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2.5&w=160&h=160&q=80"
+                  :src="
+                    require('https://images.unsplash.com/photo-1500917293891-ef795e70e1f6?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2.5&w=160&h=160&q=80?original')
+                  "
                   alt=""
                 />
               </div>
@@ -161,7 +167,7 @@
           </svg> -->
           <blockquote class="relative bg-white rounded-lg shadow-lg">
             <div class="px-6 py-8 rounded-t-lg sm:px-10 sm:pt-10 sm:pb-8">
-              <img src="https://tailwindui.com/img/logos/workcation-color.svg" alt="Workcation" class="h-8" />
+              <img :src="require('https://tailwindui.com/img/logos/workcation-color.svg?original')" alt="Workcation" class="h-8" />
               <div class="relative mt-8 text-lg font-medium leading-7 text-gray-700">
                 <svg
                   class="absolute top-0 left-0 w-8 h-8 text-gray-200 transform -translate-x-3 -translate-y-2"
@@ -182,7 +188,9 @@
               <div class="mr-4 border-2 border-white rounded-full sm:-mt-15 sm:mr-6">
                 <img
                   class="w-12 h-12 bg-indigo-300 rounded-full sm:w-20 sm:h-20"
-                  src="https://images.unsplash.com/photo-1500917293891-ef795e70e1f6?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2.5&w=160&h=160&q=80"
+                  :src="
+                    require('https://images.unsplash.com/photo-1500917293891-ef795e70e1f6?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2.5&w=160&h=160&q=80?original')
+                  "
                   alt=""
                 />
               </div>
