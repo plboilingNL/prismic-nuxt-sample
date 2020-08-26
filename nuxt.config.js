@@ -155,10 +155,17 @@ export default {
    ** Build configuration
    */
   build: {
-    extend(config, { isDev, isClient, loaders: { vue } }, ctx) {
+    extend(config, { isServer, isDev, isClient, loaders: { vue } }, ctx) {
       if (isClient) {
         vue.transformAssetUrls.img = ['data-src', 'src']
         vue.transformAssetUrls.source = ['data-srcset', 'srcset']
+      }
+      if (isServer) {
+        config.externals += [
+          require('webpack-node-externals')({
+            allowlist: [/^vue-slick/]
+          })
+        ]
       }
     },
     // extend(config, { isDev, isClient }) {
