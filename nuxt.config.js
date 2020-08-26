@@ -39,7 +39,7 @@ export default {
   /*
    ** Global CSS
    */
-  css: ['@/assets/scss/main.css'],
+  css: ['@/assets/scss/main.css', '@/assets/scss/vendors/vue-slick-carousel.css', '@/assets/scss/vendors/vue-slick-carousel-theme.css'],
   /*
    ** Plugins to load before mounting the App
    */
