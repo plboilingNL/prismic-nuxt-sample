@@ -282,6 +282,9 @@ export default {
 </script>
 
 <style>
+.VueCarousel-dot {
+  background-color: #635bff;
+}
 .to-blue-ribbon-500 {
   --gradient-to-color: #635bff;
 }

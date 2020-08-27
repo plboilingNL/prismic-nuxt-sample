@@ -159,7 +159,6 @@ export default {
    ** Build configuration
    */
   build: {
-    vendor: ['vue-slick-caarousel'],
     extend(config, { isDev, isClient, loaders: { vue } }) {
       if (isClient) {
         vue.transformAssetUrls.img = ['data-src', 'src']
