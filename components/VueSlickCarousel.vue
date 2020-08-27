@@ -1,7 +1,7 @@
 <template>
   <div>
     <client-only>
-      <VueSlickCarousel :arrows="false" :dots="true">
+      <VueSlick :arrows="false" :dots="true">
         <div>
           <div class="relative mx-auto text-base max-w-prose lg:max-w-none">
             <blockquote class="relative bg-white rounded-lg shadow-lg">
@@ -180,7 +180,7 @@
             </blockquote>
           </div>
         </div>
-      </VueSlickCarousel>
+      </VueSlick>
     </client-only>
   </div>
 </template>
