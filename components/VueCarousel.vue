@@ -1,8 +1,5 @@
-/* eslint-disable vue/no-parsing-error */ /* eslint-disable vue/no-parsing-error */
-
 <template>
   <client-only>
-    // eslint-disable-next-line vue/valid-v-bind
     <carousel :per-page="1" :pagination-size="6" :mouse-drag="false">
       <slide>
         <div>
