@@ -230,8 +230,7 @@
               </div>
             </div>
           </div>
-          <!-- <VueCarousel /> -->
-          <VueSlick />
+          <VueCarousel />
         </div>
       </div>
     </div>
@@ -245,11 +244,11 @@
 </template>
 
 <script>
-import VueSlick from '@/components/VueSlickCarousel.vue'
+import VueCarousel from '@/components/VueCarousel.vue'
 export default {
   name: 'Home',
   components: {
-    VueSlick
+    VueCarousel
   },
 
   async asyncData({ $prismic, error, app }) {
