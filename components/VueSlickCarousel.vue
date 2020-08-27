@@ -184,17 +184,13 @@
 </template>
 <script>
 import VueSlickCarousel from 'vue-slick-carousel'
-if (process.client) {
-  require('vue-slick-carousel')
-}
+
 export default {
   components: {
     VueSlickCarousel
   },
   data() {
-    return {
-      isMounted: false
-    }
+    return {}
   }
 }
 </script>
