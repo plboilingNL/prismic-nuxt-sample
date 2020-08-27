@@ -1,6 +1,6 @@
 <template>
   <client-only>
-    <carousel :per-page="1" :navigate-to="someLocalProperty" :mouse-drag="false">
+    <carousel :per-page="1" :mouse-drag="false">
       <slide>
         <div>
           <div class="relative mx-auto text-base max-w-prose lg:max-w-none">

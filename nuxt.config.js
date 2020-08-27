@@ -44,7 +44,11 @@ export default {
    ** Plugins to load before mounting the App
    */
 
-  plugins: [{ src: '~/plugins/vue-carousel.js', ssr: false }, '~/plugins/vue-lazysizes.client.js'],
+  plugins: [
+    { src: '~/plugins/vue-carousel.js', ssr: false },
+    { src: '~/plugins/vue-slick-carousel.js', ssr: false },
+    '~/plugins/vue-lazysizes.client.js'
+  ],
   /*
    ** Nuxt.js dev-modules
    */
