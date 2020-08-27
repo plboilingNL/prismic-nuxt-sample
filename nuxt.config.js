@@ -44,7 +44,7 @@ export default {
    ** Plugins to load before mounting the App
    */
 
-  plugins: ['~/plugins/vue-lazysizes.client.js', { src: './plugins/vue-slick-carousel.js' }],
+  plugins: ['~/plugins/vue-lazysizes.client.js', '~/plugins/vue-slick-carousel.js'],
   /*
    ** Nuxt.js dev-modules
    */
@@ -155,7 +155,6 @@ export default {
    ** Build configuration
    */
   build: {
-    transpile: ['vue-slick-carousel'],
     extend(config, { isServer, isDev, isClient, loaders: { vue } }, ctx) {
       if (isClient) {
         vue.transformAssetUrls.img = ['data-src', 'src']
