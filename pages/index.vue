@@ -230,7 +230,7 @@
               </div>
             </div>
           </div>
-          <VueSlickCarousel />
+          <VueCarousel />
         </div>
       </div>
     </div>
@@ -244,8 +244,12 @@
 </template>
 
 <script>
+import VueCarousel from '@/components/VueCarousel.vue'
 export default {
   name: 'Home',
+  components: {
+    VueCarousel
+  },
 
   async asyncData({ $prismic, error, app }) {
     const currentLocale = app.i18n.locales.filter((lang) => lang.code === app.i18n.locale)[0]
