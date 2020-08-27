@@ -183,11 +183,18 @@
   </div>
 </template>
 <script>
-import '../assets/scss/vendors/vue-slick-carousel.css'
-import '../assets/scss/vendors/vue-slick-carousel-theme.css'
+import VueSlickCarousel from 'vue-slick-carousel'
+if (process.client) {
+  require('vue-slick-carousel')
+}
 export default {
   components: {
-    VueSlickCarousel: () => import('vue-slick-carousel')
+    VueSlickCarousel
+  },
+  data() {
+    return {
+      isMounted: false
+    }
   }
 }
 </script>
