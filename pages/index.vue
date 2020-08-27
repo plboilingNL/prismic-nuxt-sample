@@ -18,6 +18,7 @@
           <div class="space-y-12 lg:grid lg:grid-cols-3 lg:gap-8 lg:space-y-0">
             <div class="space-y-5 sm:space-y-4">
               <h2 class="text-3xl font-extrabold leading-9 tracking-tight sm:text-4xl">About Us</h2>
+              <span class="text-3xl text-transparent bg-clip-text bg-gradient-to-r from-scooter-400 to-blue-ribbon-500">Tęcza ribbon</span>
               <p class="text-xl leading-7 text-gray-500">
                 Nulla quam felis, enim faucibus proin velit, ornare id pretium. Augue ultrices sed arcu condimentum vestibulum suspendisse. Volutpat
                 eu faucibus vivamus eget bibendum cras.
@@ -472,6 +473,13 @@ export default {
 </script>
 
 <style>
+.to-blue-ribbon-500 {
+  --gradient-to-color: #635bff;
+}
+.from-scooter-400 {
+  --gradient-from-color: #4de1ff;
+  --gradient-color-stops: var(--gradient-from-color), var(--gradient-to-color, rgba(77, 225, 255, 0));
+}
 .slick-dots li button:before {
   font-family: 'slick';
   font-size: 6px;
