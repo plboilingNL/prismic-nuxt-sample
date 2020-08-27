@@ -156,7 +156,7 @@ export default {
    */
   build: {
     transpile: ['vue-slick-carousel'],
-    extend(config, { isServer, isDev, isClient, loaders: { vue } }) {
+    extend(config, { isServer, isDev, isClient, loaders: { vue } }, ctx) {
       if (isClient) {
         vue.transformAssetUrls.img = ['data-src', 'src']
         vue.transformAssetUrls.source = ['data-srcset', 'srcset']
