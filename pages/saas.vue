@@ -71,11 +71,7 @@
               </svg>
               <div class="relative w-full mx-auto rounded-lg shadow-lg lg:max-w-md">
                 <div class="relative block w-full overflow-hidden rounded-lg focus:outline-none focus:shadow-outline">
-                  <img
-                    src="/_next/static/chunks/images/clip-programming-81ff2e0d146f9155ea0522d276bd720e.png"
-                    class="w-full bg-white"
-                    alt="Programming"
-                  />
+                  <img :data-srcset="require('~/assets/images/login.png').srcSet" class="w-full bg-white lazyload" alt="Programming" />
                 </div>
               </div>
             </div>
@@ -105,7 +101,7 @@
               <li>
                 <div class="flex">
                   <div class="flex-shrink-0">
-                    <div class="flex items-center justify-center w-12 h-12 text-white rounded-md bg-cloud-burst-500">
+                    <div class="flex items-center justify-center w-12 h-12 text-white bg-indigo-800 rounded-md">
                       <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
                       </svg>
@@ -122,7 +118,7 @@
               <li class="mt-10">
                 <div class="flex">
                   <div class="flex-shrink-0">
-                    <div class="flex items-center justify-center w-12 h-12 text-white rounded-md bg-cloud-burst-500">
+                    <div class="flex items-center justify-center w-12 h-12 text-white bg-indigo-800 rounded-md">
                       <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path
                           stroke-linecap="round"
@@ -142,7 +138,7 @@
               <li class="mt-10">
                 <div class="flex">
                   <div class="flex-shrink-0">
-                    <div class="flex items-center justify-center w-12 h-12 text-white rounded-md bg-cloud-burst-500">
+                    <div class="flex items-center justify-center w-12 h-12 text-white bg-indigo-800 rounded-md">
                       <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path
                           stroke-linecap="round"
@@ -178,9 +174,9 @@
               </defs>
               <rect width="784" height="404" fill="url(#ca9667ae-9f92-4be7-abcb-9e3d727f2941)"></rect></svg
             ><img
-              src="/_next/static/chunks/images/login-feature-e8a041dfa09dffea5cea054f2e7d7059.png"
-              class="relative mx-auto rounded-lg shadow-lg"
-              width="490"
+              :data-src="'~/assets/images/image_9_xl.jpg'"
+              :data-srcset="require('~/assets/images/image_9_xl.jpg').srcSet"
+              class="relative mx-auto bg-white rounded-lg shadow-lg"
               alt="login feature screenshot"
             />
           </div>
@@ -214,7 +210,7 @@
                 <li>
                   <div class="flex">
                     <div class="flex-shrink-0">
-                      <div class="flex items-center justify-center w-12 h-12 text-white rounded-md bg-cloud-burst-500">
+                      <div class="flex items-center justify-center w-12 h-12 text-white bg-indigo-800 rounded-md">
                         <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                           <path
                             stroke-linecap="round"
@@ -237,7 +233,7 @@
                 <li class="mt-10">
                   <div class="flex">
                     <div class="flex-shrink-0">
-                      <div class="flex items-center justify-center w-12 h-12 text-white rounded-md bg-cloud-burst-500">
+                      <div class="flex items-center justify-center w-12 h-12 text-white bg-indigo-800 rounded-md">
                         <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                           <path
                             stroke-linecap="round"
@@ -274,7 +270,8 @@
                 </defs>
                 <rect width="784" height="404" fill="url(#e80155a9-dfde-425a-b5ea-1f6fadd20131)"></rect></svg
               ><img
-                src="/_next/static/chunks/images/email-feature-72692cf42be412a53ef1190122817620.png"
+                :data-src="'~/assets/images/image_3_xl.jpg'"
+                :data-srcset="require('~/assets/images/image_3_xl.jpg').srcSet"
                 class="relative mx-auto rounded-lg shadow-lg"
                 width="490"
                 alt="email feature screenshot"

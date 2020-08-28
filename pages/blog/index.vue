@@ -93,7 +93,6 @@ export default {
       orderings: '[document.first_publication_date desc]',
       lang: currentLocale.iso.toLowerCase()
     })
-
     if (doc) {
       return {
         posts: doc.results || doc,

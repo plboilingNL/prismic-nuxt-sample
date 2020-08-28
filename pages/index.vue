@@ -2,11 +2,11 @@
 <template>
   <div>
     <section v-if="page.mission && page.mission.length > 0" class="">
-      <div class="container flex flex-col max-w-xl m-auto md:flex-row">
-        <div class="flex flex-col items-start justify-center w-full py-8 lg:w-1/2">
+      <div class="container flex flex-col max-w-xl md:flex-row">
+        <div class="flex flex-col items-start justify-center w-full py-8 lg:w-2/3">
           <prismic-rich-text :field="page.mission" class="prose" />
         </div>
-        <div class="w-full lg:w-1/3 lg:py-6">
+        <div class="w-full lg:w-1/3 md:my-12">
           <img :data-src="'~/assets/images/image_1_xl.jpg'" :data-srcset="require('~/assets/images/image_1_xl.jpg').srcSet" class="w-full lazyload" />
           <!-- <img class="w-full lazyload" :src="require('~/assets/images/image_1_xl.jpg').src" alt="Picture of the boat" /> -->
         </div>

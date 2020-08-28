@@ -1,6 +1,6 @@
 <template>
   <div>
-    <navbar-component></navbar-component>
+    <Hero />
     <main>
       <div class="relative flex items-center content-center justify-center pt-16 pb-32" style="min-height: 75vh;">
         <div
@@ -448,13 +448,13 @@
   </div>
 </template>
 <script>
-import NavbarComponent from '../components/NavbarLanding.vue'
 import FooterComponent from '../components/FooterLanding.vue'
+import Hero from '@/components/Hero'
 export default {
   name: 'LandingPage',
   components: {
-    NavbarComponent,
-    FooterComponent
+    FooterComponent,
+    Hero
   }
 }
 </script>

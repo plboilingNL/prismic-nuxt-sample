@@ -10,17 +10,17 @@
           </n-link>
         </h1> -->
       <!-- </span> -->
-      <v-navigation />
+      <Navbar />
       <!-- </div> -->
     </header>
   </div>
 </template>
 
 <script>
-import VNavigation from './Navbar'
+import Navbar from '../components/Navbar.vue'
 export default {
   components: {
-    VNavigation
+    Navbar
   },
   data: () => ({
     siteName: 'Desk Code'

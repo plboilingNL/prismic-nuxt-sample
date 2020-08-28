@@ -1,40 +1,36 @@
 <template>
   <div>
     <div>
-      <nav v-on-clickaway="hideMenu" class="bg-gray-800">
+      <nav id="nav" v-on-clickaway="hideMenu" role="navigation" class="bg-gray-800">
         <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
           <div class="flex items-center justify-between h-16">
             <div class="flex items-center">
               <div class="flex-shrink-0">
-                <img class="w-8 h-8" src="https://tailwindui.com/img/logos/workflow-mark-on-dark.svg" alt="Workflow logo" />
+                <n-link to="/">
+                  <img class="w-8 h-8" src="https://tailwindui.com/img/logos/workflow-mark-on-dark.svg" :alt="`${siteName} logo`" :title="siteName" />
+                  <span>{{ siteName }}</span>
+                </n-link>
               </div>
               <div class="hidden md:block">
                 <div class="flex items-baseline ml-10">
-                  <a
-                    href="#"
-                    class="px-3 py-2 text-sm font-medium text-white bg-gray-900 rounded-md focus:outline-none focus:text-white focus:bg-gray-700"
-                    >Dashboard</a
-                  >
-                  <a
-                    href="#"
-                    class="px-3 py-2 ml-4 text-sm font-medium text-gray-300 rounded-md hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700"
-                    >Team</a
-                  >
-                  <a
-                    href="#"
-                    class="px-3 py-2 ml-4 text-sm font-medium text-gray-300 rounded-md hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700"
-                    >Projects</a
-                  >
-                  <a
-                    href="#"
-                    class="px-3 py-2 ml-4 text-sm font-medium text-gray-300 rounded-md hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700"
-                    >Calendar</a
-                  >
-                  <a
-                    href="#"
-                    class="px-3 py-2 ml-4 text-sm font-medium text-gray-300 rounded-md hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700"
-                    >Reports</a
-                  >
+                  <div class="flex space-x-2">
+                    <div v-for="(link, i) in links" :key="i" :class="{ current: isCurrent(link) }">
+                      <n-link
+                        class="px-3 py-2 ml-4 text-sm font-medium leading-5 text-gray-300 transition duration-150 ease-in-out rounded-md hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 scrollactive-item"
+                        data-section-selector="localePath({
+                            path: link.path
+                          })"
+                        data-scroll
+                        :to="
+                          localePath({
+                            path: link.path
+                          })
+                        "
+                      >
+                        {{ $t(link.name) }}
+                      </n-link>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -85,7 +81,7 @@
                     leave-class="transform scale-100 opacity-100"
                     leave-to-class="transform scale-95 opacity-0"
                   >
-                    <div v-show="isOpen" v-if="isOpen" class="absolute right-0 w-48 mt-2 origin-top-right rounded-md shadow-lg">
+                    <div v-show="isOpen" v-if="isOpen" class="absolute right-0 z-50 w-48 mt-2 origin-top-right rounded-md shadow-lg">
                       <div class="py-1 bg-white rounded-md shadow-xs" role="menu" aria-orientation="vertical" aria-labelledby="user-menu">
                         <a
                           ref="language"
@@ -291,10 +287,40 @@ export default {
     return {
       open: false,
       isOpen: false,
-      focusedIndex: 0
+      focusedIndex: 0,
+      links: [
+        {
+          name: 'Home',
+          path: '/'
+        },
+        {
+          name: 'Team',
+          path: '/#team',
+          hash: 'team'
+        },
+        {
+          name: 'Contattaci',
+          path: '/#contact-us'
+        },
+        {
+          name: 'Saas',
+          path: '/saas'
+        },
+        {
+          name: 'Blog',
+          path: '/blog'
+        },
+        {
+          name: 'Landing',
+          path: '/landing'
+        }
+      ]
     }
   },
   methods: {
+    isCurrent(link) {
+      return false
+    },
     hideDropdown() {
       this.isOpen = false
       this.focusedIndex = 0

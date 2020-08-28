@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-header />
+    <navbar />
     <main role="main">
       <nuxt />
     </main>
@@ -9,13 +9,11 @@
 </template>
 
 <script>
-import VHeader from '@/components/Header'
-import VFooter from '@/components/Footer'
+import Navbar from '@/components/Navbar'
 
 export default {
   components: {
-    VHeader,
-    VFooter
+    Navbar
   }
 }
 </script>
