@@ -6,30 +6,49 @@
           <div class="flex items-center justify-between h-16">
             <div class="flex items-center">
               <div class="flex-shrink-0">
-                <n-link to="/">
-                  <img class="w-8 h-8" src="https://tailwindui.com/img/logos/workflow-mark-on-dark.svg" :alt="`${siteName} logo`" :title="siteName" />
-                  <span>{{ siteName }}</span>
+                <n-link :to="localePath('index')">
+                  <img class="w-8 h-8" src="https://tailwindui.com/img/logos/workflow-mark-on-dark.svg" alt="logo" />
                 </n-link>
               </div>
               <div class="hidden md:block">
                 <div class="flex items-baseline ml-10">
                   <div class="flex space-x-2">
-                    <div v-for="(link, i) in links" :key="i" :class="{ current: isCurrent(link) }">
-                      <n-link
-                        class="px-3 py-2 ml-4 text-sm font-medium leading-5 text-gray-300 transition duration-150 ease-in-out rounded-md hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 scrollactive-item"
-                        data-section-selector="localePath({
-                            path: link.path
-                          })"
-                        data-scroll
-                        :to="
-                          localePath({
-                            path: link.path
-                          })
-                        "
-                      >
-                        {{ $t(link.name) }}
-                      </n-link>
-                    </div>
+                    <n-link
+                      v-smooth-scroll
+                      class="px-3 py-2 ml-4 text-sm font-medium leading-5 text-gray-300 transition duration-150 ease-in-out rounded-md hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 scrollactive-item"
+                      :to="localePath('/')"
+                      >{{ $t('Home') }}</n-link
+                    >
+                    <n-link
+                      v-smooth-scroll
+                      class="px-3 py-2 ml-4 text-sm font-medium leading-5 text-gray-300 transition duration-150 ease-in-out rounded-md hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 scrollactive-item"
+                      :to="localePath('/#about')"
+                      >{{ $t('About') }}</n-link
+                    >
+                    <n-link
+                      v-smooth-scroll
+                      class="px-3 py-2 ml-4 text-sm font-medium leading-5 text-gray-300 transition duration-150 ease-in-out rounded-md hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 scrollactive-item"
+                      :to="localePath('/#team')"
+                      >{{ $t('Team') }}</n-link
+                    >
+                    <n-link
+                      v-smooth-scroll
+                      class="px-3 py-2 ml-4 text-sm font-medium leading-5 text-gray-300 transition duration-150 ease-in-out rounded-md hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 scrollactive-item"
+                      :to="localePath('/#contact')"
+                      >{{ $t('Contact') }}</n-link
+                    >
+                    <n-link
+                      v-smooth-scroll
+                      class="px-3 py-2 ml-4 text-sm font-medium leading-5 text-gray-300 transition duration-150 ease-in-out rounded-md hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 scrollactive-item"
+                      :to="localePath('/saas')"
+                      >{{ $t('Saas') }}</n-link
+                    >
+                    <n-link
+                      v-smooth-scroll
+                      class="px-3 py-2 ml-4 text-sm font-medium leading-5 text-gray-300 transition duration-150 ease-in-out rounded-md hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 scrollactive-item"
+                      :to="localePath('/landing')"
+                      >{{ $t('Landing') }}</n-link
+                    >
                   </div>
                 </div>
               </div>
@@ -287,34 +306,7 @@ export default {
     return {
       open: false,
       isOpen: false,
-      focusedIndex: 0,
-      links: [
-        {
-          name: 'Home',
-          path: '/'
-        },
-        {
-          name: 'Team',
-          path: '/#team',
-          hash: 'team'
-        },
-        {
-          name: 'Contattaci',
-          path: '/#contact-us'
-        },
-        {
-          name: 'Saas',
-          path: '/saas'
-        },
-        {
-          name: 'Blog',
-          path: '/blog'
-        },
-        {
-          name: 'Landing',
-          path: '/landing'
-        }
-      ]
+      focusedIndex: 0
     }
   },
   methods: {
@@ -362,7 +354,7 @@ export default {
   }
 }
 </script>
-<style scoped>
+<style>
 .dropdown-fade-enter-active,
 .dropdown-fade-leave-active {
   transition: all 0.1s ease-in-out;

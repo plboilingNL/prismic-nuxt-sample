@@ -130,6 +130,7 @@ export default {
       this.$i18n.setLocaleCookie(language)
       this.$router.replace(this.switchLocalePath(language))
       this.hideDropdown()
+      this.$router.push(to.location)
     }
   }
 }

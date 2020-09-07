@@ -173,7 +173,7 @@
 
     <!-- This component requires Tailwind CSS >= 1.5.1 and @tailwindcss/ui >= 0.4.0 -->
 
-    <div id="about" class="py-16 overflow-hidden bg-cover bg-gray-50">
+    <div class="py-16 overflow-hidden bg-cover bg-gray-50">
       <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
         <div class="mx-auto text-base max-w-prose lg:max-w-none">
           <p class="text-base font-semibold leading-6 tracking-wide text-indigo-600 uppercase">Transactions</p>

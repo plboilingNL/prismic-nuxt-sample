@@ -46,7 +46,7 @@ export default {
 
   plugins: [
     { src: '~/plugins/vue-carousel.js', ssr: false },
-    { src: '~/plugins/vue-slick-carousel.js', ssr: false },
+    { src: '~/plugins/vue2-smooth-scroll.js', ssr: false },
     '~/plugins/vue-lazysizes.client.js'
   ],
   /*
@@ -55,8 +55,13 @@ export default {
   buildModules: [
     // Doc: https://github.com/nuxt-community/eslint-module
     '@nuxtjs/eslint-module',
-    '@nuxtjs/tailwindcss'
+    '@nuxtjs/tailwindcss',
+    '@nuxtjs/prismic'
   ],
+  prismic: {
+    endpoint: process.env.PRISMIC_URL,
+    linkResolver: '~/prismic/link-resolver.js'
+  },
   /*
    ** Nuxt.js modules
    */
@@ -67,7 +72,6 @@ export default {
     // Doc: https://nuxt-community.github.io/nuxt-i18n/
     'nuxt-i18n',
     // Doc: https://prismic-nuxt.js.org/docs/getting-started
-    '@nuxtjs/prismic',
     'nuxt-purgecss',
     'nuxt-responsive-loader'
   ],
@@ -91,73 +95,90 @@ export default {
       {
         name: 'English',
         code: 'en',
-        iso: 'en-GB',
-        file: 'en.js'
+        iso: 'en-gb',
+        fileile: 'en.json'
       },
       {
         name: 'Polski',
         code: 'pl',
-        iso: 'pl-PL',
-        file: 'pl.js'
+        iso: 'pl-pl',
+        file: 'pl.json'
       },
       {
         name: 'Nederlands',
         code: 'nl',
-        iso: 'nl-NL',
-        file: 'nl.js'
+        iso: 'nl-nl',
+        file: 'nl.json'
       }
     ],
-    lazy: true,
-    langDir: 'langs/',
-    defaultLocale: 'pl'
-  },
-  /**
-   * Prismic module configuration
-   */
-  prismic: {
-    endpoint: process.env.PRISMIC_URL,
-    linkResolver: '~/prismic/link-resolver.js'
-  },
-  /*
-   ** Static site generation configuration
-   */
-  generate: {
-    routes
-  },
-  router: {
-    routes: [
-      {
-        path: '/',
-        name: 'Home', // Be sure to set 'name' property for the route you want to be "parent" route
-        meta: {
-          breadcrumb: 'Home'
-        }
-      },
-      {
-        path: '/saas',
-        name: 'saas',
-        meta: {
-          breadcrumb: {
-            label: 'Saas',
-            parent: 'home' // Here you should use exact string as for name property in "parent" route
-          }
-        }
-      },
-      {
-        path: '/blog/',
-        name: 'blog',
-        meta: {
-          breadcrumb: {
-            label: 'blog',
-            parent: 'blog' // Here you should use exact string as for name property in "parent" route
-          }
+    defaultLocale: 'pl',
+    strategy: 'prefix_except_default',
+    lazy: false,
+    seo: true,
+    parsePages: false,
+    langDir: 'lang/',
+    routes: {
+      routes
+    },
+    vueI18n: {
+      fallbackLocale: 'pl',
+      messages: {
+        en: {
+          Team: 'TeamEN',
+          About: 'About'
+        },
+        pl: {
+          Team: 'TeamPL',
+          About: 'O nas'
+        },
+        nl: {
+          Team: 'TeamNL',
+          About: 'Over ons'
         }
       }
-    ]
+    }
   },
+  /**
+
+  /*
+  //  ** Static site generation configuration
+   */
   /*
    ** Build configuration
    */
+  // Smooth scroll
+  router: {
+    scrollBehavior: async (to, from, savedPosition) => {
+      if (savedPosition) {
+        return savedPosition
+      }
+
+      const findEl = async (hash, x) => {
+        return (
+          document.querySelector(hash) ||
+          new Promise((resolve, reject) => {
+            if (x > 50) {
+              return resolve()
+            }
+            setTimeout(() => {
+              resolve(findEl(hash, ++x || 1))
+            }, 100)
+          })
+        )
+      }
+
+      if (to.hash) {
+        const el = await findEl(to.hash)
+        if ('scrollBehavior' in document.documentElement.style) {
+          return window.scrollTo({ top: el.offsetTop, behavior: 'smooth' })
+        } else {
+          return window.scrollTo(0, el.offsetTop)
+        }
+      }
+
+      return { x: 0, y: 0 }
+    }
+  },
   build: {
     extend(config, { isDev, isClient, loaders: { vue } }) {
       if (isClient) {

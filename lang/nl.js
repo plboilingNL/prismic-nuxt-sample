@@ -1,4 +1,12 @@
 export default {
+  links: {
+    home: 'Home',
+    about: 'Over ons',
+    team: 'Team',
+    contact: 'Contact',
+    saas: 'Saas',
+    landing: 'Landing'
+  },
   corporate: {
     vat: 'p. iva',
     share_capital: 'cap. soc.'

@@ -1,0 +1,31 @@
+{
+  "links": {
+    "home": "HomeNL",
+    "about": "AboutNL",
+    "team": "TeamNL",
+    "contact": "ContactNL",
+    "saas": "SaasNL",
+    "landing": "LandingNL"
+  },
+  "corporate": {
+    "vat": "p. iva",
+    "share_capital": "cap. soc."
+  },
+  "blog": {
+    "last_posts": "Ultimi articoli",
+    "all_posts": "Tutti i post",
+    "post_of": "Van"
+  },
+  "post": {
+    "reading_time": "",
+    "comments": "Commenti"
+  },
+  "home": {
+    "title": "Welcome",
+    "introduction": "This is an introduction in English."
+  },
+  "about": {
+    "title": "About",
+    "introduction": "This page is made to give you more informations."
+  }
+}
