@@ -6,7 +6,7 @@
           <div class="flex items-center justify-between h-16">
             <div class="flex items-center">
               <div class="flex-shrink-0">
-                <n-link :to="localePath('index')">
+                <n-link :to="localePath('/')">
                   <img class="w-8 h-8" src="https://tailwindui.com/img/logos/workflow-mark-on-dark.svg" alt="logo" />
                 </n-link>
               </div>
@@ -14,40 +14,34 @@
                 <div class="flex items-baseline ml-10">
                   <div class="flex space-x-2">
                     <n-link
-                      v-smooth-scroll
                       class="px-3 py-2 ml-4 text-sm font-medium leading-5 text-gray-300 transition duration-150 ease-in-out rounded-md hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 scrollactive-item"
                       :to="localePath('/')"
                       >{{ $t('Home') }}</n-link
                     >
                     <n-link
-                      v-smooth-scroll
                       class="px-3 py-2 ml-4 text-sm font-medium leading-5 text-gray-300 transition duration-150 ease-in-out rounded-md hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 scrollactive-item"
                       :to="localePath('/#about')"
-                      >{{ $t('About') }}</n-link
+                      >{{ $t('about') }}</n-link
                     >
                     <n-link
-                      v-smooth-scroll
                       class="px-3 py-2 ml-4 text-sm font-medium leading-5 text-gray-300 transition duration-150 ease-in-out rounded-md hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 scrollactive-item"
                       :to="localePath('/#team')"
-                      >{{ $t('Team') }}</n-link
+                      >{{ $t('team') }}</n-link
                     >
                     <n-link
-                      v-smooth-scroll
                       class="px-3 py-2 ml-4 text-sm font-medium leading-5 text-gray-300 transition duration-150 ease-in-out rounded-md hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 scrollactive-item"
                       :to="localePath('/#contact')"
-                      >{{ $t('Contact') }}</n-link
+                      >{{ $t('contact') }}</n-link
                     >
                     <n-link
-                      v-smooth-scroll
                       class="px-3 py-2 ml-4 text-sm font-medium leading-5 text-gray-300 transition duration-150 ease-in-out rounded-md hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 scrollactive-item"
                       :to="localePath('/saas')"
-                      >{{ $t('Saas') }}</n-link
+                      >{{ $t('saas') }}</n-link
                     >
                     <n-link
-                      v-smooth-scroll
                       class="px-3 py-2 ml-4 text-sm font-medium leading-5 text-gray-300 transition duration-150 ease-in-out rounded-md hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 scrollactive-item"
                       :to="localePath('/landing')"
-                      >{{ $t('Landing') }}</n-link
+                      >{{ $t('landing') }}</n-link
                     >
                   </div>
                 </div>

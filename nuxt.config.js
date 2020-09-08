@@ -124,16 +124,19 @@ export default {
       fallbackLocale: 'pl',
       messages: {
         en: {
-          Team: 'TeamEN',
-          About: 'About'
+          team: 'TeamEN',
+          about: 'About',
+          contact: 'Contact'
         },
         pl: {
-          Team: 'TeamPL',
-          About: 'O nas'
+          team: 'TeamPL',
+          about: 'O nas',
+          contact: 'Kontakt'
         },
         nl: {
-          Team: 'TeamNL',
-          About: 'Over ons'
+          team: 'TeamNL',
+          about: 'Over ons',
+          contact: 'Contact'
         }
       }
     }

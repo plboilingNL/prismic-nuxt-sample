@@ -237,7 +237,7 @@
 
     <!-- testim end -->
     <section v-if="page.contacts && page.contacts.length > 0" class="home-section contact-us">
-      <a id="contact-us" href="#" class="anchor"></a>
+      <a id="contact" href="#" class="anchor"></a>
       <prismic-rich-text :field="page.contacts" />
     </section>
   </div>
