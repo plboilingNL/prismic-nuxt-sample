@@ -35,12 +35,12 @@
                     >
                     <n-link
                       class="px-3 py-2 ml-4 text-sm font-medium leading-5 text-gray-300 transition duration-150 ease-in-out rounded-md hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 scrollactive-item"
-                      :to="localePath('/saas')"
+                      :to="localePath('saas')"
                       >{{ $t('saas') }}</n-link
                     >
                     <n-link
                       class="px-3 py-2 ml-4 text-sm font-medium leading-5 text-gray-300 transition duration-150 ease-in-out rounded-md hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 scrollactive-item"
-                      :to="localePath('/landing')"
+                      :to="localePath('landing')"
                       >{{ $t('landing') }}</n-link
                     >
                   </div>
