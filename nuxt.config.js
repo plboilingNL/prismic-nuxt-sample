@@ -95,16 +95,16 @@ export default {
         fileile: 'en.json'
       },
       {
-        name: 'Polski',
-        code: 'pl',
-        iso: 'pl-PL',
-        file: 'pl.json'
-      },
-      {
         name: 'Nederlands',
         code: 'nl',
         iso: 'nl-NL',
         file: 'nl.json'
+      },
+      {
+        name: 'Polski',
+        code: 'pl',
+        iso: 'pl-PL',
+        file: 'pl.json'
       }
     ],
     defaultLocale: 'pl',
