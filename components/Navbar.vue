@@ -19,17 +19,13 @@
                       >{{ $t('Home') }}</n-link
                     >
                     <n-link
-                      :to="localePath({ name: 'index', hash: '#about' })"
-                      alt="about"
                       class="px-3 py-2 ml-4 text-sm font-medium leading-5 text-gray-300 transition duration-150 ease-in-out rounded-md hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 scrollactive-item"
-                      v-text="about"
+                      :to="localePath('/#about')"
                       >{{ $t('about') }}</n-link
                     >
                     <n-link
-                      :to="localePath({ name: 'index', hash: '#team' })"
-                      alt="team"
                       class="px-3 py-2 ml-4 text-sm font-medium leading-5 text-gray-300 transition duration-150 ease-in-out rounded-md hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 scrollactive-item"
-                      v-text="team"
+                      :to="localePath('/#team')"
                       >{{ $t('team') }}</n-link
                     >
                     <n-link
