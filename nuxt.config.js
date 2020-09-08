@@ -108,7 +108,7 @@ export default {
       }
     ],
     defaultLocale: 'pl',
-    strategy: 'prefix_except_default',
+    strategy: 'prefix_and_default',
     silentTranslationWarn: process.env.NODE_ENV === 'production',
     lazy: false,
     seo: true,
