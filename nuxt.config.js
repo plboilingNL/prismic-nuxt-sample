@@ -44,11 +44,7 @@ export default {
    ** Plugins to load before mounting the App
    */
 
-  plugins: [
-    { src: '~/plugins/vue-carousel.js', ssr: false },
-    { src: '~/plugins/vue2-smooth-scroll.js', ssr: false },
-    '~/plugins/vue-lazysizes.client.js'
-  ],
+  plugins: [{ src: '~/plugins/vue-carousel.js', ssr: false }, '~/plugins/i18n.js', '~/plugins/vue-lazysizes.client.js'],
   /*
    ** Nuxt.js dev-modules
    */
@@ -84,7 +80,7 @@ export default {
   purgeCSS: {
     mode: 'postcss',
     enabled: process.env.NODE_ENV === 'production',
-    whitelistPatterns: [/slick$/]
+    whitelistPatterns: [/$carousel/]
   },
   /**
    * I18n module configuration
@@ -95,28 +91,33 @@ export default {
       {
         name: 'English',
         code: 'en',
-        iso: 'en-gb',
+        iso: 'en-GB',
         fileile: 'en.json'
       },
       {
         name: 'Polski',
         code: 'pl',
-        iso: 'pl-pl',
+        iso: 'pl-PL',
         file: 'pl.json'
       },
       {
         name: 'Nederlands',
         code: 'nl',
-        iso: 'nl-nl',
+        iso: 'nl-NL',
         file: 'nl.json'
       }
     ],
     defaultLocale: 'pl',
     strategy: 'prefix_except_default',
+    silentTranslationWarn: process.env.NODE_ENV === 'production',
     lazy: false,
     seo: true,
     parsePages: false,
     langDir: 'lang/',
+    detectBrowserLanguage: {
+      useCookie: true,
+      cookieCrossOrigin: true
+    },
     routes: {
       routes
     },
@@ -150,38 +151,38 @@ export default {
    ** Build configuration
    */
   // Smooth scroll
-  router: {
-    scrollBehavior: async (to, from, savedPosition) => {
-      if (savedPosition) {
-        return savedPosition
-      }
+  // router: {
+  //   scrollBehavior: async (to, from, savedPosition) => {
+  //     if (savedPosition) {
+  //       return savedPosition
+  //     }
 
-      const findEl = async (hash, x) => {
-        return (
-          document.querySelector(hash) ||
-          new Promise((resolve, reject) => {
-            if (x > 50) {
-              return resolve()
-            }
-            setTimeout(() => {
-              resolve(findEl(hash, ++x || 1))
-            }, 100)
-          })
-        )
-      }
+  //     const findEl = async (hash, x) => {
+  //       return (
+  //         document.querySelector(hash) ||
+  //         new Promise((resolve, reject) => {
+  //           if (x > 50) {
+  //             return resolve()
+  //           }
+  //           setTimeout(() => {
+  //             resolve(findEl(hash, ++x || 1))
+  //           }, 100)
+  //         })
+  //       )
+  //     }
 
-      if (to.hash) {
-        const el = await findEl(to.hash)
-        if ('scrollBehavior' in document.documentElement.style) {
-          return window.scrollTo({ top: el.offsetTop, behavior: 'smooth' })
-        } else {
-          return window.scrollTo(0, el.offsetTop)
-        }
-      }
+  //     if (to.hash) {
+  //       const el = await findEl(to.hash)
+  //       if ('scrollBehavior' in document.documentElement.style) {
+  //         return window.scrollTo({ top: el.offsetTop, behavior: 'smooth' })
+  //       } else {
+  //         return window.scrollTo(0, el.offsetTop)
+  //       }
+  //     }
 
-      return { x: 0, y: 0 }
-    }
-  },
+  //     return { x: 0, y: 0 }
+  //   }
+  // },
   build: {
     extend(config, { isDev, isClient, loaders: { vue } }) {
       if (isClient) {
