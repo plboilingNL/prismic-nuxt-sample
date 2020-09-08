@@ -228,12 +228,7 @@
           <div class="flex flex-wrap">
             <div class="w-full px-4 mb-12 md:w-6/12 lg:w-3/12 lg:mb-0">
               <div class="px-6">
-                <img
-                  alt="..."
-                  src="../assets/images/team-1-800x800.jpg"
-                  class="max-w-full mx-auto rounded-full shadow-lg"
-                  style="max-width: 120px;"
-                />
+                <img alt="..." src="~/assets/images/team-1-800x800.jpg" class="max-w-full mx-auto rounded-full shadow-lg" style="max-width: 120px;" />
                 <div class="pt-6 text-center">
                   <h5 class="text-xl font-bold">Ryan Tompson</h5>
                   <p class="mt-1 text-sm font-semibold text-gray-500 uppercase">
@@ -253,12 +248,7 @@
             </div>
             <div class="w-full px-4 mb-12 md:w-6/12 lg:w-3/12 lg:mb-0">
               <div class="px-6">
-                <img
-                  alt="..."
-                  src="../assets/images/team-2-800x800.jpg"
-                  class="max-w-full mx-auto rounded-full shadow-lg"
-                  style="max-width: 120px;"
-                />
+                <img alt="..." src="~/assets/images/team-2-800x800.jpg" class="max-w-full mx-auto rounded-full shadow-lg" style="max-width: 120px;" />
                 <div class="pt-6 text-center">
                   <h5 class="text-xl font-bold">Romina Hadid</h5>
                   <p class="mt-1 text-sm font-semibold text-gray-500 uppercase">
@@ -276,12 +266,7 @@
             </div>
             <div class="w-full px-4 mb-12 md:w-6/12 lg:w-3/12 lg:mb-0">
               <div class="px-6">
-                <img
-                  alt="..."
-                  src="../assets/images/team-3-800x800.jpg"
-                  class="max-w-full mx-auto rounded-full shadow-lg"
-                  style="max-width: 120px;"
-                />
+                <img alt="..." src="~/assets/images/team-3-800x800.jpg" class="max-w-full mx-auto rounded-full shadow-lg" style="max-width: 120px;" />
                 <div class="pt-6 text-center">
                   <h5 class="text-xl font-bold">Alexa Smith</h5>
                   <p class="mt-1 text-sm font-semibold text-gray-500 uppercase">
@@ -301,12 +286,7 @@
             </div>
             <div class="w-full px-4 mb-12 md:w-6/12 lg:w-3/12 lg:mb-0">
               <div class="px-6">
-                <img
-                  alt="..."
-                  src="../assets/images/team-4-470x470.png"
-                  class="max-w-full mx-auto rounded-full shadow-lg"
-                  style="max-width: 120px;"
-                />
+                <img alt="..." src="~/assets/images/team-4-470x470.png" class="max-w-full mx-auto rounded-full shadow-lg" style="max-width: 120px;" />
                 <div class="pt-6 text-center">
                   <h5 class="text-xl font-bold">Jenna Kardi</h5>
                   <p class="mt-1 text-sm font-semibold text-gray-500 uppercase">
@@ -448,7 +428,7 @@
   </div>
 </template>
 <script>
-import FooterComponent from '../components/FooterLanding.vue'
+import FooterComponent from '~/components/FooterLanding.vue'
 import Hero from '@/components/Hero'
 export default {
   name: 'LandingPage',
