@@ -6,6 +6,7 @@ dotenv.config()
 
 export default {
   mode: 'universal',
+  target: 'static',
   server: {
     port: process.env.NUXT_PORT || 3000,
     host: process.env.NUXT_HOST || 'localhost'
