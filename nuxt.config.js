@@ -24,6 +24,12 @@ export default {
         content: process.env.npm_package_description || ''
       }
     ],
+    script: [
+      {
+        src: 'https://polyfill.io/v3/polyfill.min.js?features=IntersectionObserver',
+        body: true
+      }
+    ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
       { rel: 'stylesheet', href: 'https://rsms.me/inter/inter.css' }
