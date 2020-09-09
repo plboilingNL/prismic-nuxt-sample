@@ -39,8 +39,9 @@ export default {
   /*
    ** Global CSS
    */
-  css: ['@/assets/scss/main.css'],
-  /** Plugins to load before mounting the App
+  css: ['@/assets/scss/main.css', '@/assets/scss/vendors/vue-slick-carousel.css', '@/assets/scss/vendors/vue-slick-carousel-theme.css'],
+  /*
+   ** Plugins to load before mounting the App
    */
 
   plugins: [{ src: '~/plugins/vue-carousel.js', ssr: false }, '~/plugins/i18n.js', '~/plugins/vue-lazysizes.client.js'],
@@ -51,13 +52,11 @@ export default {
     // Doc: https://github.com/nuxt-community/eslint-module
     '@nuxtjs/eslint-module',
     '@nuxtjs/tailwindcss',
-    '@/modules/static',
-    '@/modules/crawler'
+    '@nuxtjs/prismic'
   ],
   prismic: {
     endpoint: process.env.PRISMIC_URL,
     linkResolver: '~/prismic/link-resolver.js',
-    htmlSerializer: '~/prismic/html-serializer',
     preview: '/preview/'
   },
   /*
@@ -71,8 +70,7 @@ export default {
     'nuxt-i18n',
     // Doc: https://prismic-nuxt.js.org/docs/getting-started
     'nuxt-purgecss',
-    'nuxt-responsive-loader',
-    '@nuxtjs/prismic'
+    'nuxt-responsive-loader'
   ],
   responsiveLoader: {
     name: 'images/[hash:7]-[width].[ext]',
@@ -154,12 +152,11 @@ export default {
    ** Build configuration
    */
   build: {
-    extend(config, { isDev, isClient, loaders: { vue } }, ctx) {
+    extend(config, { isDev, isClient, loaders: { vue } }) {
       if (isClient) {
         vue.transformAssetUrls.img = ['data-src', 'src']
         vue.transformAssetUrls.source = ['data-srcset', 'srcset']
       }
-      config.resolve.alias.vue = 'vue/dist/vue.common'
     },
     // extend(config, { isDev, isClient }) {
     //   config.module.rules.unshift({
@@ -204,8 +201,24 @@ export default {
         }
       }
     }
+  },
+  generate: {
+    async routes() {
+      const client = PrismicJs.client('process.env.PRISMIC_URL')
+      async function fetchDocs(page = 1, routes = []) {
+        const response = await client.query('', {
+          pageSize: 100,
+          lang: '*',
+          page
+        })
+        const allRoutes = routes.concat(response.results)
+        if (response.results_size + routes.length < response.total_results_size) {
+          return fetchDocs(page + 1, allRoutes)
+        }
+        return [...new Set(allRoutes)]
+      }
+      const allRoutes = await fetchDocs()
+      return allRoutes.map(linkResolver)
+    }
   }
-  // generate: {
-  //   fallback: '404.html' // Netlify reads a 404.html, Nuxt will load as an SPA
-  // }
 }
