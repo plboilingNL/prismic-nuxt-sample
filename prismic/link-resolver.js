@@ -3,8 +3,8 @@ export default function(doc) {
   if (doc.type === 'post') {
     return '/blog/' + doc.uid
   }
-  if (doc.type === 'landing') return '/sample/landing'
-  if (doc.type === 'saas') return '/saas'
+  if (doc.type === 'landing') return '/:lang/landing'
+  if (doc.type === 'saas') return '/:lang/saas'
   // Default to homepage
   return '/'
 }
