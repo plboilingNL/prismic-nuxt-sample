@@ -745,9 +745,6 @@ export default {
         title: 'saas'
       }
     }
-  },
-  beforeMount() {
-    Object.assign(this, this.$asyncData)
   }
 }
 </script>
