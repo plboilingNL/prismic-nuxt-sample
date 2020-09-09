@@ -16,7 +16,7 @@ if (process.client) {
 
 export default async (to, from, savedPosition) => {
   if (savedPosition) {
-    return savedPosition
+    return { x: 0, y: 0 }
   }
 
   // eslint-disable-next-line require-await
