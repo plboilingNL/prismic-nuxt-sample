@@ -39,9 +39,8 @@ export default {
   /*
    ** Global CSS
    */
-  css: ['@/assets/scss/main.css', '@/assets/scss/vendors/vue-slick-carousel.css', '@/assets/scss/vendors/vue-slick-carousel-theme.css'],
-  /*
-   ** Plugins to load before mounting the App
+  css: ['@/assets/scss/main.css'],
+  /** Plugins to load before mounting the App
    */
 
   plugins: [{ src: '~/plugins/vue-carousel.js', ssr: false }, '~/plugins/i18n.js', '~/plugins/vue-lazysizes.client.js'],
@@ -205,8 +204,8 @@ export default {
         }
       }
     }
-  },
-  generate: {
-    fallback: '404.html' // Netlify reads a 404.html, Nuxt will load as an SPA
   }
+  // generate: {
+  //   fallback: '404.html' // Netlify reads a 404.html, Nuxt will load as an SPA
+  // }
 }

@@ -19,6 +19,7 @@ export default async (to, from, savedPosition) => {
     return savedPosition
   }
 
+  // eslint-disable-next-line require-await
   const findEl = async (hash, x) => {
     return (
       document.querySelector(hash) ||

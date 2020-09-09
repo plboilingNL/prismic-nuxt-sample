@@ -2,8 +2,6 @@
 
 @import "tailwindcss/components";
 /* purgecss start ignore */
-@import "assets/scss/vendors/vue-slick-carousel.css";
-@import "assets/scss/vendors/vue-slick-carousel-theme.css";
 
 /* purgecss end ignore */
 
