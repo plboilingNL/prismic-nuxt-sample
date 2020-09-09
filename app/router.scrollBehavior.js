@@ -1,47 +1,16 @@
-if (process.client) {
-  if ('scrollRestoration' in window.history) {
-    window.history.scrollRestoration = 'manual'
-    // reset scrollRestoration to auto when leaving page, allowing page reload
-    // and back-navigation from other pages to use the browser to restore the
-    // scrolling position.
-    window.addEventListener('beforeunload', () => {
-      window.history.scrollRestoration = 'auto'
-    })
-    // Setting scrollRestoration to manual again when returning to this page.
-    window.addEventListener('load', () => {
-      window.history.scrollRestoration = 'manual'
-    })
-  }
-}
+export default function(to, from, savedPosition) {
+  // If the returned position is falsy or an empty object, will retain current scroll position
+  let position = false
 
-export default async (to, from, savedPosition) => {
-  if (savedPosition) {
-    return { x: 0, y: 0 }
-  }
+  const Pages = getMatchedComponents(to)
 
-  // eslint-disable-next-line require-await
-  const findEl = async (hash, x) => {
-    return (
-      document.querySelector(hash) ||
-      new Promise((resolve, reject) => {
-        if (x > 50) {
-          return resolve()
-        }
-        setTimeout(() => {
-          resolve(findEl(hash, ++x || 1))
-        }, 100)
-      })
-    )
+  // Scroll to the top of the page if...
+  if (
+    // One of the children set `scrollToTop`
+    Pages.some((Page) => Page.options.scrollToTop) ||
+    // scrollToTop set in only page without children
+    (Pages.length < 2 && Pages.every((Page) => Page.options.scrollToTop !== false))
+  ) {
+    position = { x: 0, y: 0 }
   }
-
-  if (to.hash) {
-    const el = await findEl(to.hash)
-    if ('scrollBehavior' in document.documentElement.style) {
-      return window.scrollTo({ top: el.offsetTop, behavior: 'smooth' })
-    } else {
-      return window.scrollTo(0, el.offsetTop)
-    }
-  }
-
-  return { x: 0, y: 0 }
 }

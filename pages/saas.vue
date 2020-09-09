@@ -724,21 +724,6 @@
 export default {
   name: 'Saas',
   layout: 'blog',
-  async asyncData({ $prismic, error, app }) {
-    const currentLocale = app.i18n.locales.filter((lang) => lang.code === app.i18n.locale)[0]
-    // Doc: https://prismic.io/docs/javascript/query-the-api/query-a-single-type-document
-    const doc = await $prismic.api.getSingle('homepage', {
-      lang: currentLocale.iso.toLowerCase()
-    })
-
-    if (doc) {
-      return {
-        page: doc.data || doc
-      }
-    } else {
-      error({ statusCode: 404, message: 'Page not found' })
-    }
-  },
   data() {
     return {
       meta: {

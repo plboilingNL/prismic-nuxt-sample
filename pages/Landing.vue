@@ -428,31 +428,13 @@
   </div>
 </template>
 <script>
-import FooterComponent from '~/components/FooterLanding.vue'
+import FooterComponent from '~/components/FooterLanding'
 import Hero from '@/components/Hero'
 export default {
   name: 'LandingPage',
   components: {
     FooterComponent,
     Hero
-  },
-  async asyncData({ $prismic, error, app }) {
-    const currentLocale = app.i18n.locales.filter((lang) => lang.code === app.i18n.locale)[0]
-    // Doc: https://prismic.io/docs/javascript/query-the-api/query-a-single-type-document
-    const doc = await $prismic.api.getSingle('homepage', {
-      lang: currentLocale.iso.toLowerCase()
-    })
-
-    if (doc) {
-      return {
-        page: doc.data || doc
-      }
-    } else {
-      error({ statusCode: 404, message: 'Page not found' })
-    }
-  },
-  beforeMount() {
-    Object.assign(this, this.$asyncData)
   }
 }
 </script>
