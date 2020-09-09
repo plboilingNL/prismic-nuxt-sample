@@ -20,17 +20,20 @@
                     >
                     <n-link
                       class="px-3 py-2 ml-4 text-sm font-medium leading-5 text-gray-300 transition duration-150 ease-in-out rounded-md hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 scrollactive-item"
-                      :to="localePath('/#about')"
+                      :to="localePath('#about')"
+                      @click.native="scrollFix('#about')"
                       >{{ $t('about') }}</n-link
                     >
                     <n-link
                       class="px-3 py-2 ml-4 text-sm font-medium leading-5 text-gray-300 transition duration-150 ease-in-out rounded-md hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 scrollactive-item"
                       :to="localePath('/#team')"
+                      @click.native="scrollFix('#team')"
                       >{{ $t('team') }}</n-link
                     >
                     <n-link
                       class="px-3 py-2 ml-4 text-sm font-medium leading-5 text-gray-300 transition duration-150 ease-in-out rounded-md hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 scrollactive-item"
-                      :to="localePath('/#contact')"
+                      :to="localePath('#contact')"
+                      @click.native="scrollFix('#contact')"
                       >{{ $t('contact') }}</n-link
                     >
                     <n-link
