@@ -44,7 +44,7 @@ export default {
    ** Plugins to load before mounting the App
    */
 
-  plugins: [{ src: '~/plugins/vue-carousel.js', ssr: false }, '~/plugins/i18n.js', '~/plugins/vue-lazysizes.client.js'],
+  plugins: [{ src: '~/plugins/vue-carousel.js', ssr: false }, '~/plugins/i18n.js', '~/plugins/vue-lazysizes.client.js', '~/plugins/asyncdata.client'],
   /*
    ** Nuxt.js dev-modules
    */
@@ -157,6 +157,7 @@ export default {
         vue.transformAssetUrls.img = ['data-src', 'src']
         vue.transformAssetUrls.source = ['data-srcset', 'srcset']
       }
+      config.resolve.alias.vue = 'vue/dist/vue.common'
     },
     // extend(config, { isDev, isClient }) {
     //   config.module.rules.unshift({

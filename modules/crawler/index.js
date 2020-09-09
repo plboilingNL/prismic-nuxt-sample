@@ -1,7 +1,8 @@
 const { join } = require('path')
 const logger = require('consola').withScope('docs/crawler')
 
-module.exports = async function () {
+// eslint-disable-next-line require-await
+module.exports = async function() {
   const isBuild = this.options._build
 
   if (isBuild) {
@@ -21,7 +22,10 @@ module.exports = async function () {
       context.links = context.links || []
 
       const promises = context.links.map(async (link) => {
-        const route = link.replace(/\/+/, '/').replace(/\?.+/, '').replace(/#.+/, '')
+        const route = link
+          .replace(/\/+/, '/')
+          .replace(/\?.+/, '')
+          .replace(/#.+/, '')
         if (routes[route]) {
           return
         }
