@@ -63,10 +63,7 @@ export default {
   ],
   prismic: {
     endpoint: process.env.PRISMIC_URL,
-    linkResolver(doc, ctx) {
-      return '/'
-    },
-    preview: '/preview/'
+    disableGenerator: false
   },
   /*
    ** Nuxt.js modules
@@ -162,11 +159,11 @@ export default {
    */
   build: {
     extend(config, { isDev, isClient, loaders: { vue } }) {
+      config.resolve.alias.vue = 'vue/dist/vue.common'
       if (isClient) {
         vue.transformAssetUrls.img = ['data-src', 'src']
         vue.transformAssetUrls.source = ['data-srcset', 'srcset']
       }
-      config.resolve.alias.vue = 'vue/dist/vue.common'
     },
     // extend(config, { isDev, isClient }) {
     //   config.module.rules.unshift({
@@ -190,7 +187,7 @@ export default {
     //   })
     // },
     generate: {
-      subFolders: false
+      fallback: '404.html' // Netlify reads a 404.html, Nuxt will load as an SPA
     },
     postcss: {
       plugins: {
