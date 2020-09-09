@@ -56,7 +56,9 @@ export default {
   ],
   prismic: {
     endpoint: process.env.PRISMIC_URL,
-    linkResolver: '~/prismic/link-resolver.js',
+    linkResolver(doc, ctx) {
+      return '/'
+    },
     preview: '/preview/'
   },
   /*
@@ -180,6 +182,9 @@ export default {
     //     }
     //   })
     // },
+    generate: {
+      subFolders: false
+    },
     postcss: {
       plugins: {
         'postcss-import': {},
