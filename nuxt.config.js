@@ -51,7 +51,9 @@ export default {
   buildModules: [
     // Doc: https://github.com/nuxt-community/eslint-module
     '@nuxtjs/eslint-module',
-    '@nuxtjs/tailwindcss'
+    '@nuxtjs/tailwindcss',
+    '@/modules/static',
+    '@/modules/crawler'
   ],
   prismic: {
     endpoint: process.env.PRISMIC_URL,
@@ -71,8 +73,6 @@ export default {
     // Doc: https://prismic-nuxt.js.org/docs/getting-started
     'nuxt-purgecss',
     'nuxt-responsive-loader',
-    '@/modules/static',
-    '@/modules/crawler',
     '@nuxtjs/prismic'
   ],
   responsiveLoader: {
