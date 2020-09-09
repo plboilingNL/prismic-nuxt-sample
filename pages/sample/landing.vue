@@ -431,7 +431,7 @@
 import FooterComponent from '~/components/FooterLanding'
 import Hero from '@/components/Hero'
 export default {
-  name: 'LandingPage',
+  name: 'Landing',
   components: {
     FooterComponent,
     Hero
