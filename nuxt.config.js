@@ -51,12 +51,12 @@ export default {
   buildModules: [
     // Doc: https://github.com/nuxt-community/eslint-module
     '@nuxtjs/eslint-module',
-    '@nuxtjs/tailwindcss',
-    '@nuxtjs/prismic'
+    '@nuxtjs/tailwindcss'
   ],
   prismic: {
     endpoint: process.env.PRISMIC_URL,
     linkResolver: '~/prismic/link-resolver.js',
+    htmlSerializer: '~/prismic/html-serializer',
     preview: '/preview/'
   },
   /*
@@ -70,7 +70,10 @@ export default {
     'nuxt-i18n',
     // Doc: https://prismic-nuxt.js.org/docs/getting-started
     'nuxt-purgecss',
-    'nuxt-responsive-loader'
+    'nuxt-responsive-loader',
+    '@/modules/static',
+    '@/modules/crawler',
+    '@nuxtjs/prismic'
   ],
   responsiveLoader: {
     name: 'images/[hash:7]-[width].[ext]',
@@ -152,11 +155,12 @@ export default {
    ** Build configuration
    */
   build: {
-    extend(config, { isDev, isClient, loaders: { vue } }) {
+    extend(config, { isDev, isClient, loaders: { vue } }, ctx) {
       if (isClient) {
         vue.transformAssetUrls.img = ['data-src', 'src']
         vue.transformAssetUrls.source = ['data-srcset', 'srcset']
       }
+      config.resolve.alias.vue = 'vue/dist/vue.common'
     },
     // extend(config, { isDev, isClient }) {
     //   config.module.rules.unshift({
@@ -201,5 +205,8 @@ export default {
         }
       }
     }
+  },
+  generate: {
+    fallback: '404.html' // Netlify reads a 404.html, Nuxt will load as an SPA
   }
 }
